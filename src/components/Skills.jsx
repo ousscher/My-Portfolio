@@ -2,8 +2,8 @@ import texture from '../assets/texture.png'
 
 const Skills = ()=>{
     return(
-        <div className="flex justify-center items-center flex-col mb-8" id="skills">
-            <div className="mb-20">
+        <div className="flex justify-center items-center flex-col pb-4  pt-16 "  id="skills" >
+            <div className="mb-5" >
                 <p className="text-md text-center">What skills I have <br /><span className= " font-semibold text-[#7127BA] text-3xl">My Skills</span></p>
             </div>
             <div className="w-[90%] flex justify-evenly  pt-8">
