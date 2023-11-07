@@ -14,7 +14,7 @@ const Contact = () => {
             </div>
       <div className='w-[90%] 	 lg:w-[80%] m-auto flex flex-col md:flex-row gap-10 md:gap-[4rem] lg:gap-[8rem] xl:gap-[10rem]' >
         <div className='flex flex-col  gap-10 '>
-          <div className='  flex hover:cursor-pointer hover:scale-105  hover:bg-[transparent] hover:border-mainColor hover:border-[1px] flex-col items-center py-4 rounded-[15px] px-8 gap-4 bg-mainColor'>
+          <div className='  flex flex-col hover:cursor-pointer hover:bg-[transparent] hover:border-mainColor hover:border-[1px] items-center py-4 px-8 rounded-[15px] gap-4 bg-mainColor  '>
             <MdEmail className='text-3xl' />
             <p className='text-center' >lo_cherguelaine@esi.dz</p>
             <a href="mailto:basset.rezazi26@gmail.com" className='text-colorPrimary' >Send a message</a>

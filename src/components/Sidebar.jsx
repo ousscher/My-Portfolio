@@ -5,7 +5,7 @@ import { FaFacebook , FaGithub , FaLinkedin } from 'react-icons/fa';
 const Sidebar = ()=>{
      
     return(
-        <div className="h-[100vh] w-[44px]  fixed top-0 flex-col  items-center ">
+        <div className="hidden md:block h-[100vh] w-[44px]  fixed top-0 flex-col  items-center ">
                 <div className='w-[100%] flex items-center justify-center'>
                 <img src={line} alt="" />
                 </div>

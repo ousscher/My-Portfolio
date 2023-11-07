@@ -4,53 +4,75 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
-import Me from '../assets/evergreen.png'
+import Evergreen from '../assets/evergreen.png'
 import 'swiper/css';
 import { useEffect } from "react";
+import MyDesktopPlanner from '../assets/desktopPlanner.png'
+import Optimum from '../assets/optimum.png'
+import CseForums from '../assets/cseForums.png'
+import OrganiserApp from '../assets/organiserApp.png'
+import MyPortfolio from '../assets/portfolio.png'
+import lock from '../assets/lock.svg'
 
 const projects = [
 {
-    title:"Optimum",
-    img:Me,
-    technologies:"Fletter Firebase Haive",
-    details:"applicatoin mobile de reservation de rendez vous chez un medecin"
+    title:"EVERGREEN",
+    img:Evergreen,
+    technologies:"Fletter Firebase Hive",
+    details:"\"Evergreen\" est un jeu mobile éducatif conçu pour les enfants, mettant en avant la protection de l'environnement. Initié dans le cadre du module PRJP en deuxième année de cycle préparatoire à l'ESI.", 
+    isCodeAvailable : true,
+    codeLink : "https://github.com/ousscher/EVERGREEN",
+    isLiveAvailable : false,
 },
 {
-    title:"EverGreen",
-    img:Me,
-    technologies:"Fletter Firebase Haive",
-    details:"Jeu mobile distinée aux enfants concernatn la protection de l'environnement "
+    title:"OPTIMUM",
+    img:Optimum,
+    technologies:"Fletter Firebase ",
+    details:"\"Optimum\" is a mobile appointment management application designed for doctors, streamlining appointment scheduling, organization, and management for improved efficiency in healthcare.",
+    isCodeAvailable : true,
+    codeLink : "https://github.com/ousscher/EVERGREEN",
+    isLiveAvailable : false,
+    codeLive : "",
 },
 {
-    title:"CseForums",
-    img:Me,
-    technologies:"Fletter Firebase Haive",
-    details:"Une platform de gestion de questions"
+    title:"My Desktop Planner",
+    img:MyDesktopPlanner,
+    technologies:"Java JavaFX",
+    details:"My Desktop Planner is a task scheduling application dedicated to the efficient management of daily activities on desktop computers.",
+    isCodeAvailable : true,
+    codeLink : "https://github.com/ousscher/My-Dsktop-Planner",
+    isLiveAvailable : false,
+    liveLink : "",
 },
 {
-    title:"Esindigo",
-    img:Me,
-    technologies:"Fletter Firebase Haive",
-    details:"Site d'un evenement"
+    title:"CSEFORUMS",
+    img:CseForums,
+    technologies:"TailwindCss React.js Express.js",
+    details:"\"CSEFORUMS\" est une plateforme de partage de questions et de connaissances du club CSE, permettant à nos membres de poser des questions, trouver des réponses et explorer un éventail de domaines passionnants (en cours de developpement)",
+    isCodeAvailable : false,
+    isLiveAvailable : false,
 },
 {
-    title:"Esindigo",
-    img:Me,
-    technologies:"Fletter Firebase Haive",
-    details:"Site d'un evenement"
+    title:"CSE ORGANISER'S APP",
+    img:OrganiserApp,
+    technologies:"Fletter Firebase",
+    details:"L'application CSE Organizers simplifie la gestion logistique et des membres lors de nos événements CSE. Coordination, tâches, ressources et communication efficace, le tout dans une seule application.(en cours de developpement)",
+    isCodeAvailable : false,
+    codeLink : "",
+    isLiveAvailable : false,
+
 },
 {
-    title:"Esindigo",
-    img:Me,
-    technologies:"Fletter Firebase Haive",
-    details:"Site d'un evenement"
+    title:"MY PORTFOLIO",
+    img:MyPortfolio,
+    technologies:"Tailwindcss React.js ",
+    details:"Mon personel site web",
+    isCodeAvailable : true,
+    codeLink : "https://github.com/ousscher/My-Portfolio",  
+    isLiveAvailable : true,
+
 },
-{
-    title:"Esindigo",
-    img:Me,
-    technologies:"Fletter Firebase Haive",
-    details:"Site d'un evenement"
-},
+
 ];
 
 const Projects = ()=>{
@@ -85,41 +107,37 @@ const Projects = ()=>{
                 <p className="text-md text-center">Get to know about<br /><span className= " font-semibold text-[#7127BA] text-3xl">My Projects</span></p>
             </div>
             <div className="w-[90%]  p-10 ">
-            {/* <SmallPRojectCard project={projects[(currentIndex + 1) % projects.length]} />
-            <BigProjectCard project={projects[currentIndex]} />
-            <SmallPRoject Card project={projects[(currentIndex - 1 + projects.length) % projects.length]} /> */}
             <Swiper
             modules={[Navigation, Pagination, Scrollbar, A11y]}
             spaceBetween={60}
             slidesPerView={slidesPerView}
-            navigation = {true? true : false}
+            navigation = {true}
             loop = {true}
             pagination={{ clickable: true } }
             onSlideChange={(swiper) =>{ handleSlideChange(swiper); 
-               
             }}
             >
             {
                 projects.map((project, index)=>(
-                    
                     <SwiperSlide key={index} >
-                        {console.log(index)}
-                        {console.log(`     ${activeSlide}`)}
                     {/* card project */}
-                    {/* ${((index === activeSlide || (index ===6 && activeSlide===7))&&slidesPerView===3) ? 'mt-0' : ''} */}
-                    <div  className={`text-center mb-10  border-2  w-[100%] h-[63vh]   ${((index === activeSlide || (index ===0 && activeSlide===7))&&slidesPerView===3) ? '' : 'mt-10'} `}>
+                    <div  className={` mb-10  border-2  w-[100%] h-[70vh]   ${((index === activeSlide || (index ===0 && activeSlide===7))&&slidesPerView===3) ? '' : 'mt-10'} `}>
                         <div className="h-[40%] overflow-hidden border-b-[1px]">
-                            <img src={project.img} alt={project.title} className=" w-full h-full object-cover" />
+                            <img src={project.img} alt={project.title} className=" w-full h-full o" />
                         </div>
                         <div className="h-[10%] border-b-[1px] flex items-center pl-2 ">
                             <p>{project.technologies}</p>
                         </div>
                         <div  className="h-[50%] flex flex-col justify-evenly ">
                             <p className="text-center">{project.title}</p>
-                            <p className="text-center">{project.details}</p>
+                            <p className="pl-2 text-sm ">{project.details}</p>
                             <div className="flex flex-row ">
-                            <button className="bg-mainColor px-4 h-10 rounded hover:scale-105 w-[30%] ml-2">Live</button>
-                            <button className=" border-[1px] border-[gray] px-4 h-10 rounded hover:scale-105 w-[30%] ml-2">Code</button>
+                            
+                            <a href={project.codeLink} target="_blank" rel="noopener noreferrer" className={`w-[30%] h-10 ${project.isLiveAvailable?" block":" hidden"} ml-3`}><button className={`bg-mainColor  px-4 h-[100%] w-[100%] rounded hover:scale-105  `}>Live</button></a>
+                            <a href={project.codeLink} target="_blank" rel="noopener noreferrer" className={`w-[30%] h-10 ${project.isCodeAvailable?" block":" hidden"} ml-3`}><button className=" border-[1px] border-[gray]  h-[100%] w-[100%] rounded hover:scale-105   ">
+                                code
+                            </button></a>
+                            <img src={lock} alt="lock" className={` h-10 w-10 ml-8 block ${project.isCodeAvailable?"hidden":""} ${project.isLiveAvailable?"hidden" : ""} cursor-pointer`} />
                             </div>
                         </div>
                     </div>
