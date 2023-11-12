@@ -7,7 +7,7 @@ import 'swiper/css/scrollbar';
 
 const Skills = ()=>{
     return(
-        <div className="flex justify-center items-center flex-col pb-4  pt-16 "  id="skills" >
+        <section className="flex justify-center items-center flex-col pb-4  pt-16 "  id="skills" >
             <div className="mb-5" >
                 <p className="text-md text-center">What skills I have <br /><span className= " font-semibold text-[#7127BA] text-3xl">My Skills</span></p>
             </div>
@@ -93,7 +93,7 @@ const Skills = ()=>{
             }}
             >
                 <SwiperSlide>
-                    <div className="  border-2 w-[60%] ml-[20%] mb-10 h-[30vh]  ">
+                    <div className="  border-2 w-[60%] ml-[20%] mb-10 h-[30vh] text-center md:text-left  ">
                     <div className="border-b-2 h-[20%]">
                         {/* header */}
                         <p className="p-2">Languages</p>
@@ -107,7 +107,7 @@ const Skills = ()=>{
                     </div>
                 </SwiperSlide>
                 <SwiperSlide>
-                <div className="  border-2 w-[60%] ml-[20%] mb-10 h-[30vh]  ">
+                <div className="  border-2 w-[60%] ml-[20%] mb-10 h-[30vh] text-center md:text-left ">
                     <div className="border-b-2 h-[20%]">
                         {/* header */}
                         <p className="p-2">Tools</p>
@@ -120,7 +120,7 @@ const Skills = ()=>{
                     </div>
                 </SwiperSlide>
                 <SwiperSlide>
-                <div className="  border-2 w-[60%] ml-[20%] mb-10 h-[30vh]  ">
+                <div className="  border-2 w-[60%] ml-[20%] mb-10 h-[30vh]  text-center md:text-left">
                     <div className="border-b-2 h-[20%]">
                         {/* header */}
                         <p className="p-2">Databases</p>
@@ -133,7 +133,7 @@ const Skills = ()=>{
                     </div>
                 </SwiperSlide>
                 <SwiperSlide>
-                <div className="  border-2 w-[60%] ml-[20%] mb-10 h-[30vh]  ">
+                <div className="  border-2 w-[60%] ml-[20%] mb-10 h-[30vh]  text-center md:text-left">
                     <div className="border-b-2 h-[20%]">
                         {/* header */}
                         <p className="p-2">Frameworks</p>
@@ -147,7 +147,7 @@ const Skills = ()=>{
                     </div>
                 </SwiperSlide>
                 <SwiperSlide>
-                <div className="  border-2 w-[60%] ml-[20%] mb-10 h-[30vh]  ">
+                <div className="  border-2 w-[60%] ml-[20%] mb-10 h-[30vh] text-center md:text-left ">
                     <div className="border-b-2 h-[20%]">
                         {/* header */}
                         <p className="p-2">Others</p>
@@ -162,7 +162,7 @@ const Skills = ()=>{
                 </SwiperSlide>
             </Swiper>
             </div>
-        </div>  
+        </section>  
     );
 }
 

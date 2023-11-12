@@ -102,7 +102,7 @@ const Projects = ()=>{
         };
       }, []);
     return (
-        <div className="  flex flex-col items-center  pt-14" id="projects">
+        <section className="  flex flex-col items-center  pt-14" id="projects">
             <div className="">
                 <p className="text-md text-center">Get to know about<br /><span className= " font-semibold text-[#7127BA] text-3xl">My Projects</span></p>
             </div>
@@ -121,15 +121,15 @@ const Projects = ()=>{
                 projects.map((project, index)=>(
                     <SwiperSlide key={index} >
                     {/* card project */}
-                    <div  className={` mb-10  border-2  w-[100%] h-[70vh]   ${((index === activeSlide || (index ===0 && activeSlide===7))&&slidesPerView===3) ? '' : 'mt-10'} `}>
+                    <div  className={`text-center md:text-left mb-10  border-2  w-[100%] h-[70vh]   ${((index === activeSlide || (index ===0 && activeSlide===projects.length))&&slidesPerView===3) ? '' : 'mt-10'} `}>   
                         <div className="h-[40%] overflow-hidden border-b-[1px]">
                             <img src={project.img} alt={project.title} className=" w-full h-full o" />
                         </div>
                         <div className="h-[10%] border-b-[1px] flex items-center pl-2 ">
-                            <p>{project.technologies}</p>
+                            <p className="w-full text-center md:text-left">{project.technologies}</p>
                         </div>
                         <div  className="h-[50%] flex flex-col justify-evenly ">
-                            <p className="text-center">{project.title}</p>
+                            <p className="text-center text-xl">{project.title}</p>
                             <p className="pl-2 text-sm ">{project.details}</p>
                             <div className="flex flex-row ">
                             
@@ -147,7 +147,7 @@ const Projects = ()=>{
             </Swiper>
             </div>
             
-        </div>
+        </section>
     );
 }
 

@@ -1,18 +1,43 @@
-import React, { useState } from 'react';
+import React, { useState , useRef , useEffect} from 'react';
 import { FaFacebook , FaGithub , FaLinkedin  } from 'react-icons/fa';
 
 const NavBar = ()=>{
-    const [activeSection, setActiveSection] = useState('hero');
+//     const [activeSection, setActiveSection] = useState('hero');
 
-  const scrollToSection = (sectionId) => {
-    const section = document.getElementById(sectionId);
-    if (section) {
-      section.scrollIntoView({ behavior: 'smooth' });
-      setActiveSection(sectionId);
-    }
-  };
+
+const [activeItem, setActiveItem] = useState('hero');
+const navRef = useRef(null);
+
+const scrollToSection = (sectionId) => {
+  const section = document.getElementById(sectionId);
+  if (section) {
+      setActiveItem(sectionId);
+    section.scrollIntoView({ behavior: 'smooth' });
+  }
+};
+    const handleScroll = () => {
+        const sections = document.querySelectorAll('section');
+    
+        for (const section of sections) {
+          const sectionTop = section.offsetTop;
+          const sectionHeight = section.clientHeight;
+    
+          if (window.scrollY >= sectionTop && window.scrollY < sectionTop + sectionHeight) {
+            setActiveItem(section.id);
+          }
+        }
+      };
+    
+      useEffect(() => {
+        window.addEventListener('scroll', handleScroll);
+    
+        return () => {
+          window.removeEventListener('scroll', handleScroll);
+        };
+      }, []);
+    
     return(
-        <div className='flex flex-col'>
+        <div className='flex flex-col ' ref={navRef}>
             <div className="  fixed top-0 w-[100%] md:w-[96%] right-0   flex justify-between md:justify-evenly navbar text-sm items-center ">
         <div className=" lg:w-[30%] ">
             {/* pour le logo apres */}
@@ -28,25 +53,25 @@ const NavBar = ()=>{
          </span>
         </button>
         <button
-            className={`hidden md:block text-[gray] p-4 hover:text-[white] hover:scale-110 ${activeSection === 'hero' ? 'text-[white]' : ''}`}
+            className={`hidden md:block text-[gray] p-4 hover:text-[white] hover:scale-110 ${activeItem  === 'hero' ? 'text-[white]' : ''}`}
             onClick={() => scrollToSection('hero')}
             >
             &lt;Home/&gt;
         </button>
         <button
-            className={`hidden md:block text-[gray] p-4 hover:text-[white] hover:scale-110 ${activeSection === 'about' ? 'text-[white]' : ''}`}
+            className={`hidden md:block text-[gray] p-4 hover:text-[white] hover:scale-110 ${activeItem  === 'about' ? 'text-[white]' : ''}`}
             onClick={() => scrollToSection('about')}
             >
             &lt;About/&gt;
         </button>
         <button
-            className={`hidden md:block text-[gray] p-4 hover:text-[white] hover:scale-110 ${activeSection === 'skills' ? 'text-[white]' : ''}`}
+            className={`hidden md:block text-[gray] p-4 hover:text-[white] hover:scale-110 ${activeItem  === 'skills' ? 'text-[white]' : ''}`}
             onClick={() => scrollToSection('skills')}
             >
             &lt;Skills/&gt;
         </button>
         <button
-            className={` hidden md:block text-[gray] p-4 hover:text-[white] hover:scale-110 ${activeSection === 'projects' ? 'text-[white]' : ''}`}
+            className={` hidden md:block text-[gray] p-4 hover:text-[white] hover:scale-110 ${activeItem  === 'projects' ? 'text-[white]' : ''}`}
             onClick={() => scrollToSection('projects')}
             >
             &lt;Projects/&gt;
@@ -58,7 +83,7 @@ const NavBar = ()=>{
             &lt;Certificate/&gt;
         </button> */}
         <button
-            className={`hidden md:block bg-mainColor px-4 h-10 rounded hover:scale-105 ${activeSection === 'contact' ? '' : ''}`}
+            className={`hidden md:block bg-mainColor px-4 h-10 rounded hover:scale-105 ${activeItem  === 'contact' ? '' : ''}`}
             onClick={() => scrollToSection('contact')}
             >
             Contact Me
