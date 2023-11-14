@@ -73,6 +73,7 @@ const projects = [
     isCodeAvailable : true,
     codeLink : "https://github.com/ousscher/My-Portfolio",  
     isLiveAvailable : true,
+    liveLink : "https://my-portfolio-8745q4qce-ousschers-projects.vercel.app",
 
 },
 
@@ -146,7 +147,7 @@ const Projects = ()=>{
                             <p className="pl-2 text-sm ">{project.details}</p>
                             <div className="flex flex-row ">
                             
-                            <a href={project.codeLink} target="_blank" rel="noopener noreferrer" className={`w-[30%] h-10 ${project.isLiveAvailable?" block":" hidden"} ml-3`}><button className={`bg-mainColor  px-4 h-[100%] w-[100%] rounded hover:scale-105  `}>Live</button></a>
+                            <a href={project.liveLink} target="_blank" rel="noopener noreferrer" className={`w-[30%] h-10 ${project.isLiveAvailable?" block":" hidden"} ml-3`}><button className={`bg-mainColor  px-4 h-[100%] w-[100%] rounded hover:scale-105  `}>Live</button></a>
                             <a href={project.codeLink} target="_blank" rel="noopener noreferrer" className={`w-[30%] h-10 ${project.isCodeAvailable?" block":" hidden"} ml-3`}><button className=" border-[1px] border-[gray]  h-[100%] w-[100%] rounded hover:scale-105   ">
                                 code
                             </button></a>
