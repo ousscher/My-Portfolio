@@ -44,7 +44,8 @@ const scrollToSection = (sectionId) => {
             menu
          </span>
         </button>
-            <div className='  md:hidden flex flex-row items-center justify-between '>
+            <div className='  md:hidden flex flex-row items-center justify-between '> 
+            {/* test */}
                 <div className='mx-3'> <a href="/"><FaFacebook className=' text-3xl text-[white]  hover:scale-110' /></a></div>
                 <div className='mx-3'><a href="/"><FaGithub className=' text-3xl text-[white]  hover:scale-110   '   /></a></div>
                 <div className='mx-3'><a href="/"><FaLinkedin className=' text-3xl text-[white]  hover:scale-110  '  /></a></div>
