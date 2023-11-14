@@ -13,6 +13,9 @@ import CseForums from '../assets/cseForums.png'
 import OrganiserApp from '../assets/organiserApp.png'
 import MyPortfolio from '../assets/portfolio.png'
 import lock from '../assets/lock.svg'
+import { motion } from "framer-motion"
+import { textVariant } from '../motion';
+import {staggerContainer, slideIn, buttonVariants} from '../motion.js'
 
 const projects = [
 {
@@ -102,11 +105,21 @@ const Projects = ()=>{
         };
       }, []);
     return (
-        <section className="  flex flex-col items-center  pt-14" id="projects">
-            <div className="">
-                <p className="text-md text-center">Get to know about<br /><span className= " font-semibold text-[#7127BA] text-3xl">My Projects</span></p>
-            </div>
-            <div className="w-[90%]  p-10 ">
+        <motion.div 
+        variants={staggerContainer}
+        initial='hidden'
+        whileInView='show'
+        viewport={{once:false, amount: 0.25}}
+        className="  flex flex-col items-center  pt-12" id="projects">
+            <motion.h1
+                variants={textVariant(0.5)}
+                className=" text-md  text-center" >Get to know about</motion.h1>
+                <motion.h1
+                variants={textVariant(0.5)}
+                className=' text-md  text-center text-3xl text-[#7127BA] font-bold' >My Projects</motion.h1>
+            <motion.div 
+            variants={slideIn('right','tween',0.2,1)}
+            className="w-[90%]  p-10 ">
             <Swiper
             modules={[Navigation, Pagination, Scrollbar, A11y]}
             spaceBetween={60}
@@ -145,9 +158,9 @@ const Projects = ()=>{
                 ))
             }
             </Swiper>
-            </div>
+            </motion.div>
             
-        </section>
+        </motion.div>
     );
 }
 

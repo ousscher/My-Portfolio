@@ -1,7 +1,10 @@
 import { useState } from "react";
+import { motion } from "framer-motion"
+import {staggerContainer, slideIn, buttonVariants} from '../motion.js'
+import {textVariant} from '../motion.js'
 const About = ()=> {
 
-    const next = ()=>{
+    const next = ()=>{  //la fonction next 
         if (currentIndex<informations.length-1) {
             setCurrentIndex(currentIndex+1);
         }
@@ -32,21 +35,34 @@ const About = ()=> {
     ];
     const [currentIndex , setCurrentIndex] = useState(0);
     return(
-        <section className="flex justify-center items-center lg:pt-16 mb-20 " id="about"> 
+        <motion.div
+        variants={staggerContainer}
+        initial='hidden'
+        whileInView='show'
+        viewport={{once:false, amount: 0.25}}
+        className="flex justify-center items-center lg:pt-16 mb-20 " id="about"> 
             <div className=" w-[100%] sm:w-[80%] flex flex-col  justify-center items-center  ">
-                <h1 className=" my-10 text-md  text-center">Get to know <br /> <span className="text-3xl text-[#7127BA] font-bold">About Me</span> </h1>
-                <div className="h-[68vh] md:h-[62vh] lg:h-[50vh] flex justify-center items-center ">
+                {/* <h1 className=" my-10 text-md  text-center">Get to know <br /> <span className="text-3xl text-[#7127BA] font-bold">About Me</span> </h1> */}
+                <motion.h1
+                variants={textVariant(0.5)}
+                className="mt-10 text-md  text-center" >Get to know</motion.h1>
+                <motion.h1
+                variants={textVariant(0.5)}
+                className='mb-10 text-md  text-center text-3xl text-[#7127BA] font-bold' >About Me</motion.h1>
+                <motion.div
+                variants={slideIn('left','tween',0.2,1)}
+                className="h-[68vh] md:h-[62vh] lg:h-[50vh] flex justify-center items-center ">
                 <div className="w-[98%] sm:w-[85%] lg:w-[80%]  pb-10 px-2 flex flex-col items-center border-2">
                     <p className="my-5 text-center text-2xl font-bold">{informations[currentIndex].title}</p>
                     <p className="text-center">{informations[currentIndex].content}</p>
                 </div>
-                </div>
+                </motion.div>
                 <div className="w-[60%]  flex flex-row items-center justify-evenly">
                 <button onClick={previous} className={`bg-[#7127BA] px-4 w-28 md:w-32 h-10 rounded mt-10 ${currentIndex===0 ?"bg-[gray]" :""}`}> Previous</button>
                 <button onClick={next} className={`bg-[#7127BA] px-4 h-10 w-28 md:w-32 rounded mt-10 ${currentIndex === informations.length-1 ?"bg-[gray]":""}`}> Next</button >
                 </div>
             </div>
-        </section>
+        </motion.div>
     );
 }
 
