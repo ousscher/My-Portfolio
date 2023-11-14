@@ -37,19 +37,20 @@ const scrollToSection = (sectionId) => {
       };
     return(
     <div className='flex flex-col justify-center ' ref={navRef}>
-        <div className="  fixed top-0 w-[50%] md:w-[96%] md:right-0 left-0 flex flex-row justify-between md:justify-evenly navbar text-sm items-center ">
-            {/* pour le logo apres */}
+        <div className="  fixed top-0 w-[50%]  md:w-[96%] md:right-0  flex flex-row justify-between md:justify-evenly navbar  text-sm items-center ">
             <button className='m-3 md:hidden' onClick={toggleNavbar}>
             <span class="material-symbols-outlined" style={{fontSize: '44px',} }>
             menu
          </span>
         </button>
-            <div className='  md:hidden flex flex-row items-center justify-between '> 
-            {/* test */}
+        <div className=" lg:w-[30%] ">
+            {/* pour le logo apres */}
+            <div className='w-[100%] md:hidden flex flex-row  justify-around'>
                 <div className='mx-3'> <a href="/"><FaFacebook className=' text-3xl text-[white]  hover:scale-110' /></a></div>
                 <div className='mx-3'><a href="/"><FaGithub className=' text-3xl text-[white]  hover:scale-110   '   /></a></div>
                 <div className='mx-3'><a href="/"><FaLinkedin className=' text-3xl text-[white]  hover:scale-110  '  /></a></div>
             </div>
+        </div> 
         <button
             className={`hidden md:block text-[gray] p-4 hover:text-[white] hover:scale-110 ${activeItem  === 'hero' ? 'text-[white]' : ''}`}
             onClick={() => scrollToSection('hero')}
