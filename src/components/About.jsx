@@ -35,7 +35,7 @@ const About = ()=> {
     ];
     const [currentIndex , setCurrentIndex] = useState(0);
     return(
-        <motion.div
+        <motion.section
         variants={staggerContainer}
         initial='hidden'
         whileInView='show'
@@ -62,7 +62,7 @@ const About = ()=> {
                 <button onClick={next} className={`bg-[#7127BA] px-4 h-10 w-28 md:w-32 rounded mt-10 ${currentIndex === informations.length-1 ?"bg-[gray]":""}`}> Next</button >
                 </div>
             </div>
-        </motion.div>
+        </motion.section>
     );
 }
 

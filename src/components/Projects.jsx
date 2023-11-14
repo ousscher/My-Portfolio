@@ -106,7 +106,7 @@ const Projects = ()=>{
         };
       }, []);
     return (
-        <motion.div 
+        <motion.section 
         variants={staggerContainer}
         initial='hidden'
         whileInView='show'
@@ -161,7 +161,7 @@ const Projects = ()=>{
             </Swiper>
             </motion.div>
             
-        </motion.div>
+        </motion.section>
     );
 }
 

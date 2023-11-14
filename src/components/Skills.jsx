@@ -10,7 +10,7 @@ import {staggerContainer, slideIn, buttonVariants} from '../motion.js'
 
 const Skills = ()=>{
     return(
-        <motion.div
+        <motion.section
         variants={staggerContainer}
         initial='hidden'
         whileInView='show'
@@ -179,7 +179,7 @@ const Skills = ()=>{
                 </SwiperSlide>
             </Swiper>
             </div>
-        </motion.div>  
+        </motion.section>  
     );
 }
 

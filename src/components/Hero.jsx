@@ -9,7 +9,7 @@ import {textContainer, textVariant2} from '../motion.js'
 
 const Hero = () => {
   return (
-      <motion.div
+      <motion.section
       variants={staggerContainer}
       initial='hidden'
       whileInView='show'
@@ -90,7 +90,7 @@ const Hero = () => {
       </a>
       </div>
       </motion.div>
-    </motion.div>
+    </motion.section>
   )
 } 
 

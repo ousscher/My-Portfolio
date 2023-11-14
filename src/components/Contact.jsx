@@ -31,7 +31,7 @@ const Contact = () => {
   e.target.reset();
 };
   return (
-    <motion.div 
+    <motion.section 
     variants={staggerContainer}
     initial='hidden'
     whileInView='show'
@@ -85,7 +85,7 @@ const Contact = () => {
       <div className='flex justify-center items-center h-32 '>
       {message && <p className={` text-xl font-semibold ${succes ===null ? "" : succes===false ? " text-[#ff0000e7]" : "text-[green]"}`} >{message}</p>}
       </div>
-    </motion.div>
+    </motion.section>
   )
 }
 
