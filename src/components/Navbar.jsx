@@ -36,21 +36,19 @@ const scrollToSection = (sectionId) => {
         setIsNavbarVisible(!isNavbarVisible);
       };
     return(
-    <div className='flex flex-col ' ref={navRef}>
-        <div className="  fixed top-0 w-[100%] md:w-[96%] right-0   flex justify-between md:justify-evenly navbar text-sm items-center ">
-        <div className=" lg:w-[30%] ">
+    <div className='flex flex-col justify-center ' ref={navRef}>
+        <div className="  fixed top-0 w-[50%] md:w-[96%] md:right-0 left-0 flex flex-row justify-between md:justify-evenly navbar text-sm items-center ">
             {/* pour le logo apres */}
-            <div className='w-[100%] md:hidden flex flex-row  justify-around'>
+            <button className='m-3 md:hidden' onClick={toggleNavbar}>
+            <span class="material-symbols-outlined" style={{fontSize: '44px',} }>
+            menu
+         </span>
+        </button>
+            <div className='  md:hidden flex flex-row items-center justify-between '>
                 <div className='mx-3'> <a href="/"><FaFacebook className=' text-3xl text-[white]  hover:scale-110' /></a></div>
                 <div className='mx-3'><a href="/"><FaGithub className=' text-3xl text-[white]  hover:scale-110   '   /></a></div>
                 <div className='mx-3'><a href="/"><FaLinkedin className=' text-3xl text-[white]  hover:scale-110  '  /></a></div>
             </div>
-        </div> 
-        <button className='m-3 md:hidden' onClick={toggleNavbar}>
-        <span class="material-symbols-outlined" style={{fontSize: '44px',} }>
-            menu
-         </span>
-        </button>
         <button
             className={`hidden md:block text-[gray] p-4 hover:text-[white] hover:scale-110 ${activeItem  === 'hero' ? 'text-[white]' : ''}`}
             onClick={() => scrollToSection('hero')}
@@ -75,12 +73,6 @@ const scrollToSection = (sectionId) => {
             >
             &lt;Projects/&gt;
         </button>
-        {/* <button
-            className={`text-[gray] p-4 hover:text-[white] hover:scale-110 ${activeSection === 'certificate' ? 'text-[white]' : ''}`}
-            onClick={() => scrollToSection('certificate')}
-            >
-            &lt;Certificate/&gt;
-        </button> */}
         <button
             className={`hidden md:block bg-mainColor px-4 h-10 rounded hover:scale-105 ${activeItem  === 'contact' ? '' : ''}`}
             onClick={() => scrollToSection('contact')}
