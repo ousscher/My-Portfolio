@@ -120,6 +120,9 @@ const Projects = ()=>{
                 className=' text-md  text-center text-3xl text-[#7127BA] font-bold' >My Projects</motion.h1>
             <motion.div 
             variants={slideIn('right','tween',0.2,1)}
+                initial='hidden'
+        whileInView='show'
+        viewport={{once:false, amount: 0.25}}
             className="w-[90%]  p-10 ">
             <Swiper
             modules={[Navigation, Pagination, Scrollbar, A11y]}
