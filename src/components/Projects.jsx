@@ -119,10 +119,7 @@ const Projects = ()=>{
                 variants={textVariant(0.5)}
                 className=' text-md  text-center text-3xl text-[#7127BA] font-bold' >My Projects</motion.h1>
             <motion.div 
-            variants={slideIn('right','tween',0.2,1)}
-                initial='hidden'
-        whileInView='show'
-        viewport={{once:false, amount: 0.25}}
+            variants={slideIn('left','tween',0.2,1)}
             className="w-[90%]  p-10 ">
             <Swiper
             modules={[Navigation, Pagination, Scrollbar, A11y]}
@@ -140,7 +137,7 @@ const Projects = ()=>{
                     {/* card project */}
                     <div  className={`text-center md:text-left mb-10  border-2  w-[100%] h-[70vh]   ${((index === activeSlide || (index ===0 && activeSlide===projects.length))&&slidesPerView===3) ? '' : 'mt-10'} `}>   
                         <div className="h-[40%] overflow-hidden border-b-[1px]">
-                            <img src={project.img} alt={project.title} className=" w-full h-full o" />
+                            <img src={project.img} alt={project.title} className=" z-1 w-full h-full o" />
                         </div>
                         <div className="h-[10%] border-b-[1px] flex items-center pl-2 ">
                             <p className="w-full text-center md:text-left">{project.technologies}</p>
