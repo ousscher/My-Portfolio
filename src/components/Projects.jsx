@@ -12,12 +12,34 @@ import Optimum from '../assets/optimum.png'
 import CseForums from '../assets/cseForums.png'
 import OrganiserApp from '../assets/organiserApp.png'
 import MyPortfolio from '../assets/portfolio.png'
+import Dari from '../assets/Cover-Dari.png'
+import Doclib from '../assets/doclib.png'
 import lock from '../assets/lock.svg'
 import { motion } from "framer-motion"
 import { textVariant } from '../motion';
 import {staggerContainer, slideIn, buttonVariants} from '../motion.js'
 
 const projects = [
+{
+    title:"OPTIMUM",
+    img:Optimum,
+    technologies:"Fletter Firebase ",
+    details:"\"Optimum\" is a mobile appointment management application designed for doctors, streamlining appointment scheduling, organization, and management for improved efficiency in healthcare.",
+    isCodeAvailable : true,
+    codeLink : "https://github.com/ousscher/EVERGREEN",
+    isLiveAvailable : false,
+    codeLive : "",
+},
+{
+    title:"DOCLIB",
+    img:Doclib,
+    technologies:"Flask MySql Elasticsearch Docker React.js Redux",
+    details:"\"Doclib\" est un moteur de recherche permettant aux utilisateurs de rechercher des articles scientifiques à partir de mots-clés (N'est pas encore déployé en ligne).",
+    isCodeAvailable : true,
+    codeLink : "https://github.com/GLMasters/TP-IGL",
+    isLiveAvailable : false,
+    codeLive : "",
+},
 {
     title:"EVERGREEN",
     img:Evergreen,
@@ -28,14 +50,13 @@ const projects = [
     isLiveAvailable : false,
 },
 {
-    title:"OPTIMUM",
-    img:Optimum,
-    technologies:"Fletter Firebase ",
-    details:"\"Optimum\" is a mobile appointment management application designed for doctors, streamlining appointment scheduling, organization, and management for improved efficiency in healthcare.",
+    title:"DARIAPP",
+    img:Dari,
+    technologies:"Flutter Express.js MongoDb",
+    details:"\"DARIAPP\" est une solution automatisée visant à simplifier le suivi des logements en cours de construction, realisé en hackathon du devfest constantine ", 
     isCodeAvailable : true,
-    codeLink : "https://github.com/ousscher/EVERGREEN",
+    codeLink : "https://github.com/ousscher/Devfest-23",
     isLiveAvailable : false,
-    codeLive : "",
 },
 {
     title:"My Desktop Planner",
