@@ -1,7 +1,7 @@
 import { useState } from "react";
 const About = ()=> {
 
-    const next = ()=>{
+    const next = ()=>{  //la fonction next 
         if (currentIndex<informations.length-1) {
             setCurrentIndex(currentIndex+1);
         }

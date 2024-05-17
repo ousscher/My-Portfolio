@@ -60,12 +60,12 @@ const Contact = () => {
 
         <form ref={iform}
         onSubmit={sendEmail}
-        className='flex flex-col items-start gap-4 w-full'
+        className='flex flex-col items-center gap-4 w-full'
         >
           <input type="text" name='name' placeholder='Your Full Name' className='py-2 px-4 bg-[transparent] outline-none text-colorWhite h-[50px] rounded-[12px] border-[1px] border-colorPrimary w-full' />
           <input type="email" name='email' placeholder='Your Email' className='py-2 px-4 bg-[transparent] outline-none text-colorWhite h-[50px] rounded-[12px] border-[1px] border-colorPrimary w-full'/>
           <textarea name="message" id="" cols="20" rows="6" placeholder='Your Message' className='py-2 px-4 bg-[transparent] outline-none text-colorWhite rounded-[12px] border-[1px] border-colorPrimary w-full'></textarea>
-          <button className='bg-mainColor px-4 py-2  rounded hover:scale-105  hover:bg-[] hover:border-mainColor hover:border-2  ' >Send Message</button>
+          <button className='bg-mainColor px-4 py-2  rounded hover:scale-105   hover:border-mainColor hover:border-2  ' >Send Message</button>
         </form>
       </div>
       <div className='flex justify-center items-center h-32 '>
