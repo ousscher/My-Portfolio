@@ -4,35 +4,18 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
-import { motion } from "framer-motion"
-import { textVariant } from '../motion';
-import {staggerContainer, slideIn, buttonVariants} from '../motion.js'
 
 const Skills = ()=>{
     return(
-        <motion.section
-        variants={staggerContainer}
-        initial='hidden'
-        whileInView='show'
-        viewport={{once:false, amount: 0.25}}
-        className="flex justify-center items-center flex-col pb-4  pt-8 "  id="skills" >
+        <section className="flex justify-center items-center flex-col pb-4  pt-16 "  id="skills" >
             <div className="mb-5" >
-                <motion.h1
-                variants={textVariant(0.5)}
-                className="mt-10 text-md  text-center" >What skills I have</motion.h1>
-                <motion.h1
-                variants={textVariant(0.5)}
-                className='mb-10 text-md  text-center text-3xl text-[#7127BA] font-bold' >My Skills</motion.h1>
+                <p className="text-md text-center">What skills I have <br /><span className= " font-semibold text-[#7127BA] text-3xl">My Skills</span></p>
             </div>
             <div className="w-[90%] flex justify-evenly  pt-12 ">
-                <motion.div
-                variants={slideIn('right','tween',0.2,1)}
-                className='w-[35%] mt-14 hidden lg:block'>
+                <div className='w-[35%] mt-14 hidden lg:block'>
                     <img src={texture} alt="texture" />
-                </motion.div>
-                <motion.div  
-                variants={slideIn('left','tween',0.2,1)}
-                className=' w-[90%] lg:w-[60%] hidden  md:flex flex-row justify-around ' >
+                </div>
+                <div className=' w-[90%] lg:w-[60%] hidden  md:flex flex-row justify-around ' >
                     <div className = "w-[30%] ">
                     <div className="  border-2 w-[100%]">
                     <div className="border-b-2 ">
@@ -41,9 +24,10 @@ const Skills = ()=>{
                     </div>
                     <div className="flex flex-col">
                         <p className="m-2 " >Java</p>
-                        <p className="m-2 " >C</p>
+                        <p className="m-2 " >C / C++</p>
                         <p className="m-2 " >Java Script</p>
                         <p className="m-2 " >Dart</p>
+                        <p className="m-2 " >Python</p>
                     </div>
                     </div>
                     </div>
@@ -66,7 +50,8 @@ const Skills = ()=>{
                     <div className="flex flex-col">
                         <p className="m-2 " >SQLite</p>
                         <p className="m-2 " >MYSQL</p>
-                        <p className="m-2 " >Mongo</p>
+                        <p className="m-2 " >MongoDB</p>
+                        <p className="m-2 " >ElasticSearch</p>
                     </div>
                     </div>
                     </div>
@@ -77,10 +62,10 @@ const Skills = ()=>{
                         <p className="p-2">Frameworks</p>
                     </div>
                     <div className="flex flex-col">
-                        <p className="m-2 " >React.js/ Vue.js</p>
+                        <p className="m-2 " >React.js</p>
                         <p className="m-2 " >Express.js</p>
-                        <p className="m-2 " >Flutter</p>
-                        <p className="m-2 " >React Native</p>
+                        <p className="m-2 " >Flutter/ React Native</p>
+                        <p className="m-2 " >Django</p>
                     </div>
                     </div>
                     <div className="  border-2 w-[100%] mb-4 ">
@@ -96,7 +81,7 @@ const Skills = ()=>{
                     </div>
                     </div>
                     </div>
-                </motion.div >
+                </div>
             </div>
             <div className='w-[90%]  p-10 flex items-center justify-center md:hidden  '>
             <Swiper
@@ -179,7 +164,7 @@ const Skills = ()=>{
                 </SwiperSlide>
             </Swiper>
             </div>
-        </motion.section>  
+        </section>  
     );
 }
 
