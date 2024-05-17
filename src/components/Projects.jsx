@@ -77,7 +77,7 @@ const projects = [
     isCodeAvailable : false,
     isLiveAvailable : false,
 },
-    {
+{
     title:"IBTIKAR WEBSITE",
     img:ibtikar,
     technologies:"TailwindCss React.js Vite.js",
@@ -122,7 +122,7 @@ const Projects = ()=>{
           if (window.innerWidth < 768) { // Vous pouvez ajuster la largeur de déclenchement ici
             setSlidesPerView(1);
           } else{ if(window.innerWidth >= 768 && window.innerWidth < 992 ){
-            setSlidesPerView(2);
+            setSlidesPerView(2);f
           }else
           {
             setSlidesPerView(3);
