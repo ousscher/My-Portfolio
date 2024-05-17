@@ -25,8 +25,10 @@ const Skills = ()=>{
                     <div className="flex flex-col">
                         <p className="m-2 " >Java</p>
                         <p className="m-2 " >C / C++</p>
+                        <p className="m-2 " >C / C++</p>
                         <p className="m-2 " >Java Script</p>
                         <p className="m-2 " >Dart</p>
+                        <p className="m-2 " >Python</p>
                         <p className="m-2 " >Python</p>
                     </div>
                     </div>
@@ -52,6 +54,8 @@ const Skills = ()=>{
                         <p className="m-2 " >MYSQL</p>
                         <p className="m-2 " >MongoDB</p>
                         <p className="m-2 " >ElasticSearch</p>
+                        <p className="m-2 " >MongoDB</p>
+                        <p className="m-2 " >ElasticSearch</p>
                     </div>
                     </div>
                     </div>
@@ -63,7 +67,10 @@ const Skills = ()=>{
                     </div>
                     <div className="flex flex-col">
                         <p className="m-2 " >React.js</p>
+                        <p className="m-2 " >React.js</p>
                         <p className="m-2 " >Express.js</p>
+                        <p className="m-2 " >Flutter/ React Native</p>
+                        <p className="m-2 " >Django</p>
                         <p className="m-2 " >Flutter/ React Native</p>
                         <p className="m-2 " >Django</p>
                     </div>
