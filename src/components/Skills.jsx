@@ -102,7 +102,7 @@ const Skills = ()=>{
                 </motion.div >
             </div>
             <div className='w-[90%]  p-10 flex items-center justify-center md:hidden  '>
-           /* <Swiper
+                { /* <Swiper
             modules={[Navigation, Pagination, Scrollbar, A11y]}
             spaceBetween={60}
             slidesPerView={1}
@@ -115,7 +115,7 @@ const Skills = ()=>{
                 <SwiperSlide>
                     <div className="  border-2 w-[60%] ml-[20%] mb-10 h-[30vh] text-center md:text-left  ">
                     <div className="border-b-2 h-[20%]">
-                        {/* header */}
+        
                         <p className="p-2">Languages</p>
                     </div>
                     <div className="flex flex-col h-[80%] justify-evenly">
@@ -129,7 +129,7 @@ const Skills = ()=>{
                 <SwiperSlide>
                 <div className="  border-2 w-[60%] ml-[20%] mb-10 h-[30vh] text-center md:text-left ">
                     <div className="border-b-2 h-[20%]">
-                        {/* header */}
+                    
                         <p className="p-2">Tools</p>
                     </div>
                     <div className="flex flex-col h-[80%] justify-evenly">
@@ -142,7 +142,7 @@ const Skills = ()=>{
                 <SwiperSlide>
                 <div className="  border-2 w-[60%] ml-[20%] mb-10 h-[30vh]  text-center md:text-left">
                     <div className="border-b-2 h-[20%]">
-                        {/* header */}
+                    
                         <p className="p-2">Databases</p>
                     </div>
                     <div className="flex flex-col h-[80%] justify-evenly">
@@ -155,7 +155,6 @@ const Skills = ()=>{
                 <SwiperSlide>
                 <div className="  border-2 w-[60%] ml-[20%] mb-10 h-[30vh]  text-center md:text-left">
                     <div className="border-b-2 h-[20%]">
-                        {/* header */}
                         <p className="p-2">Frameworks</p>
                     </div>
                     <div className="flex flex-col h-[80%] justify-evenly">
@@ -169,7 +168,6 @@ const Skills = ()=>{
                 <SwiperSlide>
                 <div className="  border-2 w-[60%] ml-[20%] mb-10 h-[30vh] text-center md:text-left ">
                     <div className="border-b-2 h-[20%]">
-                        {/* header */}
                         <p className="p-2">Others</p>
                     </div>
                     <div className="flex flex-col h-[80%] justify-evenly">
@@ -180,7 +178,7 @@ const Skills = ()=>{
                     </div>
                     </div>
                 </SwiperSlide>
-            </Swiper> */
+            </Swiper> */}
             </div>
         </motion.section>  
     );
