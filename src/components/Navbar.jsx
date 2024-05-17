@@ -2,12 +2,8 @@ import React, { useState , useRef , useEffect} from 'react';
 import { FaFacebook , FaGithub , FaLinkedin  } from 'react-icons/fa';
 
 const NavBar = ()=>{
-//     const [activeSection, setActiveSection] = useState('hero');
-
-
-const [activeItem, setActiveItem] = useState('hero');
+const [activeItem, setActiveItem] = useState('hero'); //pour la section actuelle
 const navRef = useRef(null);
-
 const scrollToSection = (sectionId) => {
   const section = document.getElementById(sectionId);
   if (section) {
@@ -35,10 +31,13 @@ const scrollToSection = (sectionId) => {
           window.removeEventListener('scroll', handleScroll);
         };
       }, []);
-    
+      const [isNavbarVisible, setIsNavbarVisible] = useState(false); //la variable pour afficher le navbar en petits devices
+      const toggleNavbar = () => { //inverser la valeur du isNavbarVisible
+        setIsNavbarVisible(!isNavbarVisible);
+      };
     return(
-        <div className='flex flex-col ' ref={navRef}>
-            <div className="  fixed top-0 w-[100%] md:w-[96%] right-0   flex justify-between md:justify-evenly navbar text-sm items-center ">
+    <div className='flex flex-col justify-center ' ref={navRef}>
+        <div className="  fixed top-0 w-[100%]  md:w-[96%] md:right-0  flex flex-row justify-between md:justify-evenly navbar  text-sm items-center ">
         <div className=" lg:w-[30%] ">
             {/* pour le logo apres */}
             <div className='w-[100%] md:hidden flex flex-row  justify-around'>
@@ -47,8 +46,8 @@ const scrollToSection = (sectionId) => {
                 <div className='mx-3'><a href="/"><FaLinkedin className=' text-3xl text-[white]  hover:scale-110  '  /></a></div>
             </div>
         </div> 
-        <button className='m-3 md:hidden'>
-        <span class="material-symbols-outlined" style={{fontSize: '44px',} }>
+        <button className='m-3 md:hidden' onClick={toggleNavbar}>
+            <span class="material-symbols-outlined" style={{fontSize: '44px',} }>
             menu
          </span>
         </button>
@@ -76,12 +75,6 @@ const scrollToSection = (sectionId) => {
             >
             &lt;Projects/&gt;
         </button>
-        {/* <button
-            className={`text-[gray] p-4 hover:text-[white] hover:scale-110 ${activeSection === 'certificate' ? 'text-[white]' : ''}`}
-            onClick={() => scrollToSection('certificate')}
-            >
-            &lt;Certificate/&gt;
-        </button> */}
         <button
             className={`hidden md:block bg-mainColor px-4 h-10 rounded hover:scale-105 ${activeItem  === 'contact' ? '' : ''}`}
             onClick={() => scrollToSection('contact')}
@@ -89,22 +82,52 @@ const scrollToSection = (sectionId) => {
             Contact Me
         </button>
         </div>
-        {/* le navbar dans le petits screens */}
-        {/* <div className=' block lg:hidden'>
+        {/* le navbar de petits screens ---- rester à developper  */}  
+        <div className={` ${isNavbarVisible?'block':'hidden'} md:hidden fixed z-[1000] top-5 w-[100%] bg-bgColor flex flex-col mt-16 justify-center items-center`}>
         <button
-            className={`hidden md:block text-[gray] p-4 hover:text-[white] hover:scale-110 ${activeSection === 'hero' ? 'text-[white]' : ''}`}
-            onClick={() => scrollToSection('hero')}
+            className={` text-[gray] p-2 hover:text-[white] hover:scale-110 ${activeItem  === 'hero' ? 'text-[white]' : ''}`}
+            onClick={() =>{
+              scrollToSection('hero'); 
+              toggleNavbar();
+            } }
             >
             &lt;Home/&gt;
         </button>
         <button
-            className={`hidden md:block text-[gray] p-4 hover:text-[white] hover:scale-110 ${activeSection === 'hero' ? 'text-[white]' : ''}`}
-            onClick={() => scrollToSection('hero')}
+            className={` text-[gray] p-2 hover:text-[white] hover:scale-110 ${activeItem  === 'about' ? 'text-[white]' : ''}`}
+            onClick={() => {
+              scrollToSection('about');
+              toggleNavbar();
+            }}
             >
-            &lt;Home/&gt;
+            &lt;About/&gt;
         </button>
-        </div> */}
+        <button
+            className={` text-[gray] p-2 hover:text-[white] hover:scale-110 ${activeItem  === 'skills' ? 'text-[white]' : ''}`}
+            onClick={() =>{
+            scrollToSection('skills');
+            toggleNavbar();
+          }}
+            >
+            &lt;Skills/&gt;
+        </button>
+        <button
+            className={`  text-[gray] p-2 pb-4 hover:text-[white] hover:scale-110 ${activeItem  === 'projects' ? 'text-[white]' : ''}`}
+            onClick={() => { scrollToSection('projects');
+            toggleNavbar();
+          }}
+            >
+            &lt;Projects/&gt;
+        </button>
+        <button className={` bg-mainColor px-2 w-36 h-10 rounded hover:scale-105 ${activeItem  === 'contact' ? '' : ''}`}
+            onClick={() =>{ scrollToSection('contact');
+            toggleNavbar();
+          }}
+            >
+            Contact Me
+        </button>
         </div>
+    </div>
     );
 }
 

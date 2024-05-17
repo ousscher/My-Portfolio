@@ -1,3 +1,4 @@
+
 const Footer = ()=>{
     return(
         <div className="bg-mainColor  p-5 rounded-t-[45px]">

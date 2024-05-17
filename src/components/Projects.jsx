@@ -10,29 +10,54 @@ import { useEffect } from "react";
 import MyDesktopPlanner from '../assets/desktopPlanner.png'
 import Optimum from '../assets/optimum.png'
 import CseForums from '../assets/cseForums.png'
+import ibtikar from '../assets/ibtikar.png'
 import OrganiserApp from '../assets/organiserApp.png'
 import MyPortfolio from '../assets/portfolio.png'
+import Dari from '../assets/Cover-Dari.png'
+import Doclib from '../assets/doclib.png'
 import lock from '../assets/lock.svg'
+import { motion } from "framer-motion"
+import { textVariant } from '../motion';
+import {staggerContainer, slideIn, buttonVariants} from '../motion.js'
 
 const projects = [
 {
+    title:"OPTIMUM",
+    img:Optimum,
+    technologies:"Flutter Firebase ",
+    details: "Optimum is a mobile appointment management application designed for doctors, streamlining appointment scheduling, organization, and management to improve efficiency in healthcare."
+    isCodeAvailable : true,
+    codeLink : "https://github.com/ousscher/optimum",
+    isLiveAvailable : false,
+    codeLive : "",
+},
+{
+    title:"DOCLIB",
+    img:Doclib,
+    technologies:"Flask MySql Elasticsearch Docker React.js Redux",
+    details:"Doclib is a search engine that allows users to find scientific articles using keywords (not yet deployed online).",
+    isCodeAvailable : true,
+    codeLink : "https://github.com/GLMasters/TP-IGL",
+    isLiveAvailable : false,
+    codeLive : "",
+},
+{
     title:"EVERGREEN",
     img:Evergreen,
-    technologies:"Fletter Firebase Hive",
-    details:"\"Evergreen\" est un jeu mobile éducatif conçu pour les enfants, mettant en avant la protection de l'environnement. Initié dans le cadre du module PRJP en deuxième année de cycle préparatoire à l'ESI.", 
+    technologies:"Flutter Firebase Hive",
+    details: "Evergreen is an educational mobile game designed for children, focusing on environmental protection. It was initiated as part of the PRJP module in the second year of the preparatory cycle at ESI.",
     isCodeAvailable : true,
     codeLink : "https://github.com/ousscher/EVERGREEN",
     isLiveAvailable : false,
 },
 {
-    title:"OPTIMUM",
-    img:Optimum,
-    technologies:"Fletter Firebase ",
-    details:"\"Optimum\" is a mobile appointment management application designed for doctors, streamlining appointment scheduling, organization, and management for improved efficiency in healthcare.",
+    title:"DARIAPP",
+    img:Dari,
+    technologies:"Flutter Express.js MongoDb",
+    details:"DARIAPP is an automated solution aimed at simplifying the monitoring of homes under construction, developed during the DevFest Constantine hackathon.",
     isCodeAvailable : true,
-    codeLink : "https://github.com/ousscher/EVERGREEN",
+    codeLink : "https://github.com/ousscher/Devfest-23",
     isLiveAvailable : false,
-    codeLive : "",
 },
 {
     title:"My Desktop Planner",
@@ -48,15 +73,24 @@ const projects = [
     title:"CSEFORUMS",
     img:CseForums,
     technologies:"TailwindCss React.js Express.js",
-    details:"\"CSEFORUMS\" est une plateforme de partage de questions et de connaissances du club CSE, permettant à nos membres de poser des questions, trouver des réponses et explorer un éventail de domaines passionnants (en cours de developpement)",
+    details:"CSEFORUMS is a knowledge-sharing platform created by the CSE club, allowing our members to ask questions, find answers, and explore a range of exciting fields (currently under development).",
     isCodeAvailable : false,
     isLiveAvailable : false,
+},
+{
+    title:"IBTIKAR WEBSITE",
+    img:ibtikar,
+    technologies:"TailwindCss React.js Vite.js",
+    details:"Ibtikar is a fictional company specializing in innovative IT solutions, dedicated to delivering cutting-edge software and technology to meet diverse client needs.",
+    isCodeAvailable : false,
+    isLiveAvailable : true,
+    liveLink : "https://i-btikar-website.vercel.app/",
 },
 {
     title:"CSE ORGANISER'S APP",
     img:OrganiserApp,
     technologies:"Fletter Firebase",
-    details:"L'application CSE Organizers simplifie la gestion logistique et des membres lors de nos événements CSE. Coordination, tâches, ressources et communication efficace, le tout dans une seule application.(en cours de developpement)",
+    details:"The CSE Organizers application simplifies logistics and member management during our CSE events. Coordination, tasks, resources, and efficient communication are all integrated into a single application (currently under development).",
     isCodeAvailable : false,
     codeLink : "",
     isLiveAvailable : false,
@@ -66,10 +100,11 @@ const projects = [
     title:"MY PORTFOLIO",
     img:MyPortfolio,
     technologies:"Tailwindcss React.js ",
-    details:"Mon personel site web",
+    details:"My personnel web site",
     isCodeAvailable : true,
     codeLink : "https://github.com/ousscher/My-Portfolio",  
     isLiveAvailable : true,
+    liveLink : "https://my-portfolio-8745q4qce-ousschers-projects.vercel.app",
 
 },
 
@@ -87,7 +122,7 @@ const Projects = ()=>{
           if (window.innerWidth < 768) { // Vous pouvez ajuster la largeur de déclenchement ici
             setSlidesPerView(1);
           } else{ if(window.innerWidth >= 768 && window.innerWidth < 992 ){
-            setSlidesPerView(2);
+            setSlidesPerView(2);f
           }else
           {
             setSlidesPerView(3);
@@ -102,11 +137,21 @@ const Projects = ()=>{
         };
       }, []);
     return (
-        <section className="  flex flex-col items-center  pt-14" id="projects">
-            <div className="">
-                <p className="text-md text-center">Get to know about<br /><span className= " font-semibold text-[#7127BA] text-3xl">My Projects</span></p>
-            </div>
-            <div className="w-[90%]  p-10 ">
+        <motion.section 
+        variants={staggerContainer}
+        initial='hidden'
+        whileInView='show'
+        viewport={{once:false, amount: 0.25}}
+        className="  flex flex-col items-center  pt-12" id="projects">
+            <motion.h1
+                variants={textVariant(0.5)}
+                className=" text-md  text-center" >Get to know about</motion.h1>
+                <motion.h1
+                variants={textVariant(0.5)}
+                className=' text-md  text-center text-3xl text-[#7127BA] font-bold' >My Projects</motion.h1>
+            <motion.div 
+            variants={slideIn('left','tween',0.2,1)}
+            className="w-[90%]  p-10 ">
             <Swiper
             modules={[Navigation, Pagination, Scrollbar, A11y]}
             spaceBetween={60}
@@ -123,7 +168,7 @@ const Projects = ()=>{
                     {/* card project */}
                     <div  className={`text-center md:text-left mb-10  border-2  w-[100%] h-[70vh]   ${((index === activeSlide || (index ===0 && activeSlide===projects.length))&&slidesPerView===3) ? '' : 'mt-10'} `}>   
                         <div className="h-[40%] overflow-hidden border-b-[1px]">
-                            <img src={project.img} alt={project.title} className=" w-full h-full o" />
+                            <img src={project.img} alt={project.title} className=" z-1 w-full h-full o" />
                         </div>
                         <div className="h-[10%] border-b-[1px] flex items-center pl-2 ">
                             <p className="w-full text-center md:text-left">{project.technologies}</p>
@@ -133,7 +178,7 @@ const Projects = ()=>{
                             <p className="pl-2 text-sm ">{project.details}</p>
                             <div className="flex flex-row ">
                             
-                            <a href={project.codeLink} target="_blank" rel="noopener noreferrer" className={`w-[30%] h-10 ${project.isLiveAvailable?" block":" hidden"} ml-3`}><button className={`bg-mainColor  px-4 h-[100%] w-[100%] rounded hover:scale-105  `}>Live</button></a>
+                            <a href={project.liveLink} target="_blank" rel="noopener noreferrer" className={`w-[30%] h-10 ${project.isLiveAvailable?" block":" hidden"} ml-3`}><button className={`bg-mainColor  px-4 h-[100%] w-[100%] rounded hover:scale-105  `}>Live</button></a>
                             <a href={project.codeLink} target="_blank" rel="noopener noreferrer" className={`w-[30%] h-10 ${project.isCodeAvailable?" block":" hidden"} ml-3`}><button className=" border-[1px] border-[gray]  h-[100%] w-[100%] rounded hover:scale-105   ">
                                 code
                             </button></a>
@@ -145,9 +190,9 @@ const Projects = ()=>{
                 ))
             }
             </Swiper>
-            </div>
+            </motion.div>
             
-        </section>
+        </motion.section>
     );
 }
 
