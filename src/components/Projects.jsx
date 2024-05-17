@@ -10,6 +10,7 @@ import { useEffect } from "react";
 import MyDesktopPlanner from '../assets/desktopPlanner.png'
 import Optimum from '../assets/optimum.png'
 import CseForums from '../assets/cseForums.png'
+import ibtikar from '../assets/ibtikar.png'
 import OrganiserApp from '../assets/organiserApp.png'
 import MyPortfolio from '../assets/portfolio.png'
 import Dari from '../assets/Cover-Dari.png'
@@ -75,6 +76,15 @@ const projects = [
     details:"CSEFORUMS is a knowledge-sharing platform created by the CSE club, allowing our members to ask questions, find answers, and explore a range of exciting fields (currently under development).",
     isCodeAvailable : false,
     isLiveAvailable : false,
+},
+    {
+    title:"IBTIKAR WEBSITE",
+    img:ibtikar,
+    technologies:"TailwindCss React.js Vite.js",
+    details:"Ibtikar is a fictional company specializing in innovative IT solutions, dedicated to delivering cutting-edge software and technology to meet diverse client needs.",
+    isCodeAvailable : false,
+    isLiveAvailable : true,
+    liveLink : "https://i-btikar-website.vercel.app/",
 },
 {
     title:"CSE ORGANISER'S APP",
