@@ -102,7 +102,7 @@ const Skills = ()=>{
                 </motion.div >
             </div>
             <div className='w-[90%]  p-10 flex items-center justify-center md:hidden  '>
-            <Swiper
+           /* <Swiper
             modules={[Navigation, Pagination, Scrollbar, A11y]}
             spaceBetween={60}
             slidesPerView={1}
@@ -180,7 +180,7 @@ const Skills = ()=>{
                     </div>
                     </div>
                 </SwiperSlide>
-            </Swiper>
+            </Swiper> */
             </div>
         </motion.section>  
     );
