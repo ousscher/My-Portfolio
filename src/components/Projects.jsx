@@ -8,6 +8,7 @@ import Evergreen from '../assets/evergreen.png'
 import 'swiper/css';
 import { useEffect } from "react";
 import MyDesktopPlanner from '../assets/desktopPlanner.png'
+import foorweb from '../assets/foorweb.png'
 import Optimum from '../assets/optimum.png'
 import CseForums from '../assets/cseForums.png'
 import ibtikar from '../assets/ibtikar.png'
@@ -25,7 +26,7 @@ const projects = [
     title:"OPTIMUM",
     img:Optimum,
     technologies:"Flutter Firebase ",
-    details: "Optimum is a mobile appointment management application designed for doctors, streamlining appointment scheduling, organization, and management to improve efficiency in healthcare."
+    details: "Optimum is a mobile appointment management application designed for doctors, streamlining appointment scheduling, organization, and management to improve efficiency in healthcare.", 
     isCodeAvailable : true,
     codeLink : "https://github.com/ousscher/optimum",
     isLiveAvailable : false,
@@ -48,7 +49,18 @@ const projects = [
     details: "Evergreen is an educational mobile game designed for children, focusing on environmental protection. It was initiated as part of the PRJP module in the second year of the preparatory cycle at ESI.",
     isCodeAvailable : true,
     codeLink : "https://github.com/ousscher/EVERGREEN",
-    isLiveAvailable : false,
+    isLiveAvailable : true,
+    liveLink : "https://drive.google.com/file/d/1AYx4b9-tTXaFnLjNHsYfS-PuMxA5f85z/view?usp=sharing"
+},
+{
+    title:"FOORWEB",
+    img:foorweb,
+    technologies:"Flutter Firebase Hive",
+    details: "Foorweb is an admin application for an online sales platform, designed to manage e-commerce stores efficiently. It streamlines store administration, inventory management, order processing, and customer interactions, providing a comprehensive solution for online retailers.",
+    isCodeAvailable : false,
+    codeLink : "https://github.com/ousscher/EVERGREEN",
+    isLiveAvailable : true,
+    liveLink : "https://drive.google.com/file/d/1oq0aRcWHRS4Z-mY7aYn8NgZ2dKT5U5ym/view?usp=drive_link"
 },
 {
     title:"DARIAPP",
@@ -122,7 +134,7 @@ const Projects = ()=>{
           if (window.innerWidth < 768) { // Vous pouvez ajuster la largeur de déclenchement ici
             setSlidesPerView(1);
           } else{ if(window.innerWidth >= 768 && window.innerWidth < 992 ){
-            setSlidesPerView(2);f
+            setSlidesPerView(2);
           }else
           {
             setSlidesPerView(3);
