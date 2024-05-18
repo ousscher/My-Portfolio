@@ -101,7 +101,7 @@ const projects = [
 {
     title:"CSE ORGANISER'S APP",
     img:OrganiserApp,
-    technologies:"Fletter Firebase",
+    technologies:"Flutter Firebase",
     details:"The CSE Organizers application simplifies logistics and member management during our CSE events. Coordination, tasks, resources, and efficient communication are all integrated into a single application (currently under development).",
     isCodeAvailable : false,
     codeLink : "",
