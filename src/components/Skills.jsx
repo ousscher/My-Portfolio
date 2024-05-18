@@ -41,8 +41,9 @@ const Skills = ()=>{
                     </div>
                     <div className="flex flex-col">
                         <p className="m-2 " >Java</p>
-                        <p className="m-2 " >C</p>
-                        <p className="m-2 " >Java Script</p>
+                        <p className="m-2 " >C/C++</p>
+                        <p className="m-2 " >Python</p>
+                        <p className="m-2 " >JavaScript</p>
                         <p className="m-2 " >Dart</p>
                     </div>
                     </div>
@@ -66,7 +67,8 @@ const Skills = ()=>{
                     <div className="flex flex-col">
                         <p className="m-2 " >SQLite</p>
                         <p className="m-2 " >MYSQL</p>
-                        <p className="m-2 " >Mongo</p>
+                        <p className="m-2 " >MongoDB</p>
+                        <p className="m-2 " >ElasticSearch</p>
                     </div>
                     </div>
                     </div>
@@ -77,10 +79,11 @@ const Skills = ()=>{
                         <p className="p-2">Frameworks</p>
                     </div>
                     <div className="flex flex-col">
-                        <p className="m-2 " >React.js/ Vue.js</p>
-                        <p className="m-2 " >Express.js</p>
+                        <p className="m-2 " >React.js/Next.js</p>
+                        <p className="m-2 " >Node.js/Express.js</p>
                         <p className="m-2 " >Flutter</p>
                         <p className="m-2 " >React Native</p>
+                        <p className="m-2 " >Django</p>
                     </div>
                     </div>
                     <div className="  border-2 w-[100%] mb-4 ">
@@ -117,10 +120,9 @@ const Skills = ()=>{
                     </div>
                     <div className="flex flex-col h-[80%] justify-evenly">
                         <p className="m-2 " >Java</p>
-                        <p className="m-2 " >C/C++</p>
-                        <p className="m-2 " >JavaScript</p>
+                        <p className="m-2 " >C</p>
+                        <p className="m-2 " >Java Script</p>
                         <p className="m-2 " >Dart</p>
-                        <p className="m-2 " >Python</p>
                     </div>
                     </div>
                 </SwiperSlide>
@@ -147,7 +149,6 @@ const Skills = ()=>{
                     <p className="m-2 " >SQLite</p>
                         <p className="m-2 " >MYSQL</p>
                         <p className="m-2 " >Mongo</p>
-                        <p className="m-2 " >ElasticSearch</p>
                     </div>
                     </div>
                 </SwiperSlide>
@@ -158,11 +159,10 @@ const Skills = ()=>{
                         <p className="p-2">Frameworks</p>
                     </div>
                     <div className="flex flex-col h-[80%] justify-evenly">
-                    <p className="m-2 " >React.js/Next.js</p>
+                    <p className="m-2 " >React.js/ Vue.js</p>
                         <p className="m-2 " >Express.js</p>
                         <p className="m-2 " >Flutter</p>
                         <p className="m-2 " >React Native</p>
-                        <p className="m-2 " >Django</p>
                     </div>
                     </div>
                 </SwiperSlide>
