@@ -29,8 +29,8 @@ const projects = [
     details: "Optimum is a mobile appointment management application designed for doctors, streamlining appointment scheduling, organization, and management to improve efficiency in healthcare.", 
     isCodeAvailable : true,
     codeLink : "https://github.com/ousscher/optimum",
-    isLiveAvailable : false,
-    codeLive : "",
+    isLiveAvailable : true,
+    liveLink : "https://drive.google.com/file/d/1atqZ4ak0Fgf93eoY1hQTCS1sEz3pOIFe/view?usp=sharing",
 },
 {
     title:"DOCLIB",
@@ -55,12 +55,12 @@ const projects = [
 {
     title:"FOORWEB",
     img:foorweb,
-    technologies:"Flutter Firebase Hive",
-    details: "Foorweb is an admin application for an online sales platform, designed to manage e-commerce stores efficiently. It streamlines store administration, inventory management, order processing, and customer interactions, providing a comprehensive solution for online retailers.",
+    technologies:"Flutter Firebase flutter_BLoC Hive",
+    details: "Foorweb is an admin application for an online sales platform, designed to manage e-commerce stores efficiently. It streamlines store administration, inventory management, order processing, and customer interactions.",
     isCodeAvailable : false,
     codeLink : "https://github.com/ousscher/EVERGREEN",
     isLiveAvailable : true,
-    liveLink : "https://drive.google.com/file/d/1oq0aRcWHRS4Z-mY7aYn8NgZ2dKT5U5ym/view?usp=drive_link"
+    liveLink : "https://drive.google.com/file/d/13K016iQoJjuHKydlVgrOWMhMlN65ASFM/view?usp=sharing"
 },
 {
     title:"DARIAPP",
