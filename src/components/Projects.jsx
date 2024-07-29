@@ -8,8 +8,10 @@ import Evergreen from '../assets/evergreen.png'
 import 'swiper/css';
 import { useEffect } from "react";
 import MyDesktopPlanner from '../assets/desktopPlanner.png'
-import foorweb from '../assets/foorweb.png'
-import Optimum from '../assets/optimum.png'
+import foorweb from '../assets/foorweb_cover.png'
+import Optimum from '../assets/optimum_cover.png'
+import optimumWebSite from '../assets/Cover.png'
+import chateauDesEnfants from '../assets/cover_chateau_des_enfants.png'
 import CseForums from '../assets/cseForums.png'
 import ibtikar from '../assets/ibtikar.png'
 import OrganiserApp from '../assets/organiserApp.png'
@@ -25,22 +27,32 @@ const projects = [
 {
     title:"OPTIMUM",
     img:Optimum,
-    technologies:"Flutter Firebase ",
+    technologies:"Flutter Firebase Hive",
     details: "Optimum is a mobile appointment management application designed for doctors, streamlining appointment scheduling, organization, and management to improve efficiency in healthcare.", 
-    isCodeAvailable : true,
+    isCodeAvailable : false,
     codeLink : "https://github.com/ousscher/optimum",
     isLiveAvailable : true,
-    liveLink : "https://drive.google.com/file/d/1atqZ4ak0Fgf93eoY1hQTCS1sEz3pOIFe/view?usp=sharing",
+    liveLink : "https://optimum-app.vercel.app/",
 },
 {
-    title:"DOCLIB",
-    img:Doclib,
-    technologies:"Flask MySql Elasticsearch Docker React.js Redux",
-    details:"Doclib is a search engine that allows users to find scientific articles using keywords (not yet deployed online).",
+    title:"OPTIMUM-WEBSITE",
+    img:optimumWebSite,
+    technologies:"React TailwindCss Vite.js",
+    details: "Optimum-Website is your ultimate resource for everything related to Optimum, the innovative mobile application designed for doctors. Here, you'll find detailed information about the app's features, benefits, organisaton and management.", 
+    isCodeAvailable : false,
+    codeLink : "https://github.com/ousscher/optimum",
+    isLiveAvailable : true,
+    liveLink : "https://optimum-app.vercel.app/",
+},
+{
+    title:"CHATEAU DES ENFANTS",    
+    img:chateauDesEnfants,
+    technologies:"React Tailwind Flask MySql Docker",
+    details: "Le Château des Enfants is an open-source, locally deployed platform that streamlines daycare center management. Our mission is to simplify payment management and track children's progress, providing a seamless experience for administrators and parents.", 
     isCodeAvailable : true,
-    codeLink : "https://github.com/GLMasters/TP-IGL",
+    codeLink : "https://github.com/ousscher/optimum",
     isLiveAvailable : false,
-    codeLive : "",
+    liveLink : "https://optimum-app.vercel.app/",
 },
 {
     title:"EVERGREEN",
@@ -51,6 +63,16 @@ const projects = [
     codeLink : "https://github.com/ousscher/EVERGREEN",
     isLiveAvailable : true,
     liveLink : "https://drive.google.com/file/d/1AYx4b9-tTXaFnLjNHsYfS-PuMxA5f85z/view?usp=sharing"
+},
+{
+    title:"DOCLIB",
+    img:Doclib,
+    technologies:"Flask MySql Elasticsearch Docker React.js Redux",
+    details:"Doclib is a search engine that allows users to find scientific articles using keywords (not yet deployed online).",
+    isCodeAvailable : true,
+    codeLink : "https://github.com/GLMasters/TP-IGL",
+    isLiveAvailable : false,
+    codeLive : "",
 },
 {
     title:"FOORWEB",
@@ -178,16 +200,16 @@ const Projects = ()=>{
                 projects.map((project, index)=>(
                     <SwiperSlide key={index} >
                     {/* card project */}
-                    <div  className={`text-center md:text-left mb-10  border-2  w-[100%] h-[70vh]   ${((index === activeSlide || (index ===0 && activeSlide===projects.length))&&slidesPerView===3) ? '' : 'mt-10'} `}>   
-                        <div className="h-[40%] overflow-hidden border-b-[1px]">
+                    <div  className={`text-center md:text-left mb-10  border-2  w-[100%] h-[75vh]   ${((index === activeSlide || (index ===0 && activeSlide===projects.length))&&slidesPerView===3) ? '' : 'mt-10'} `}>   
+                        <div className="h-[42%] overflow-hidden border-b-[1px]">
                             <img src={project.img} alt={project.title} className=" z-1 w-full h-full o" />
                         </div>
                         <div className="h-[10%] border-b-[1px] flex items-center pl-2 ">
                             <p className="w-full text-center md:text-left">{project.technologies}</p>
                         </div>
-                        <div  className="h-[50%] flex flex-col justify-evenly ">
+                        <div  className="h-[48%]  flex flex-col justify-evenly text-center">
                             <p className="text-center text-xl">{project.title}</p>
-                            <p className="pl-2 text-sm ">{project.details}</p>
+                            <p className="text-sm ">{project.details}</p>
                             <div className="flex flex-row ">
                             
                             <a href={project.liveLink} target="_blank" rel="noopener noreferrer" className={`w-[30%] h-10 ${project.isLiveAvailable?" block":" hidden"} ml-3`}><button className={`bg-mainColor  px-4 h-[100%] w-[100%] rounded hover:scale-105  `}>Live</button></a>
