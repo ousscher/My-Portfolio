@@ -28,6 +28,28 @@ body {
 }
 
 
+.swiper-slide:nth-child(n) {
+  width: 80%;
+}
+
+.slide-active-design {
+  transform: scale(1.1); /* Agrandir le slide central */
+  z-index: 10; /* Mettre le slide central au-dessus des autres */
+  transition: transform 0.3s ease; /* Animation douce pour l'agrandissement */
+}
+
+/* .swiper-button-next,
+.swiper-button-prev {
+    padding: 25px;
+    background-color: white; 
+    border-radius: 50%; 
+    display: flex;
+    justify-content: center;
+    align-items: center;  
+    line-height: 10px;
+    font-size: 5px;
+    text-align: end;
+} */
 
 
 

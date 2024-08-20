@@ -19,10 +19,14 @@ import MyPortfolio from '../assets/portfolio.png'
 import Dari from '../assets/Cover-Dari.png'
 import Doclib from '../assets/doclib.png'
 import lock from '../assets/lock.svg'
+import ghack from '../assets/ghack_algiers.png'
 import { motion } from "framer-motion"
 import { textVariant } from '../motion';
 import {staggerContainer, slideIn, buttonVariants} from '../motion.js'
+import { FaArrowRight } from "react-icons/fa";
+import { FaArrowLeft } from "react-icons/fa";
 
+// puis dans vos modules
 const projects = [
 {
     title:"OPTIMUM",
@@ -39,8 +43,8 @@ const projects = [
     img:optimumWebSite,
     technologies:"React TailwindCss Vite.js",
     details: "Optimum-Website is your ultimate resource for everything related to Optimum, the innovative mobile application designed for doctors. Here, you'll find detailed information about the app's features, benefits, organisaton and management.", 
-    isCodeAvailable : false,
-    codeLink : "https://github.com/ousscher/optimum",
+    isCodeAvailable : true,
+    codeLink : "https://github.com/ousscher/optimum-website",
     isLiveAvailable : true,
     liveLink : "https://optimum-app.vercel.app/",
 },
@@ -50,19 +54,19 @@ const projects = [
     technologies:"React Tailwind Flask MySql Docker",
     details: "Le Château des Enfants is an open-source, locally deployed platform that streamlines daycare center management. Our mission is to simplify payment management and track children's progress, providing a seamless experience for administrators and parents.", 
     isCodeAvailable : true,
-    codeLink : "https://github.com/ousscher/optimum",
+    codeLink : "https://github.com/F1OOw/Gestion-Paiments-Creche",
     isLiveAvailable : false,
     liveLink : "https://optimum-app.vercel.app/",
 },
 {
-    title:"EVERGREEN",
-    img:Evergreen,
-    technologies:"Flutter Firebase Hive",
-    details: "Evergreen is an educational mobile game designed for children, focusing on environmental protection. It was initiated as part of the PRJP module in the second year of the preparatory cycle at ESI.",
-    isCodeAvailable : true,
+    title:"FOORWEB",
+    img:foorweb,
+    technologies:"Flutter Firebase flutter_BLoC Hive",
+    details: "Foorweb is an admin application for an online sales platform, designed to manage e-commerce stores efficiently. It streamlines store administration, inventory management, order processing, and customer interactions.",
+    isCodeAvailable : false,
     codeLink : "https://github.com/ousscher/EVERGREEN",
     isLiveAvailable : true,
-    liveLink : "https://drive.google.com/file/d/1AYx4b9-tTXaFnLjNHsYfS-PuMxA5f85z/view?usp=sharing"
+    liveLink : "https://play.google.com/store/apps/details?id=com.foorweb.foorwebapp&hl=fr"
 },
 {
     title:"DOCLIB",
@@ -75,14 +79,25 @@ const projects = [
     codeLive : "",
 },
 {
-    title:"FOORWEB",
-    img:foorweb,
-    technologies:"Flutter Firebase flutter_BLoC Hive",
-    details: "Foorweb is an admin application for an online sales platform, designed to manage e-commerce stores efficiently. It streamlines store administration, inventory management, order processing, and customer interactions.",
+    title:"EVERGREEN",
+    img:Evergreen,
+    technologies:"Flutter Firebase Hive",
+    details: "Evergreen is an educational mobile game designed for children, focusing on environmental protection. It was initiated as part of the PRJP module in the second year of the preparatory cycle at ESI.",
+    isCodeAvailable : true,
+    codeLink : "https://github.com/ousscher/EVERGREEN",
+    isLiveAvailable : true,
+    liveLink : "https://drive.google.com/file/d/1AYx4b9-tTXaFnLjNHsYfS-PuMxA5f85z/view?usp=sharing"
+},
+
+{
+    title:"GHACK Website",
+    img:ghack,
+    technologies:"Next.js",
+    details: "The official Ghack Hackathon website, designed to streamline the hackathon experience, the site provides essential event information, including schedules, team registration, judging criteria, and live updates.",
     isCodeAvailable : false,
     codeLink : "https://github.com/ousscher/EVERGREEN",
     isLiveAvailable : true,
-    liveLink : "https://drive.google.com/file/d/13K016iQoJjuHKydlVgrOWMhMlN65ASFM/view?usp=sharing"
+    liveLink : "https://ghack24.gdgalgiers.com/"
 },
 {
     title:"DARIAPP",
@@ -145,87 +160,83 @@ const projects = [
 ];
 
 const Projects = ()=>{
-    const [activeSlide, setActiveSlide] = useState(1);
+    const [activeSlide, setActiveSlide] = useState(0);
 
     const handleSlideChange = (swiper) => {
-        setActiveSlide(swiper.realIndex+1);
+        setActiveSlide(swiper.realIndex);
     };
-    const [slidesPerView, setSlidesPerView] = useState(1);
-    useEffect(() => {
-        const updateSlidesPerView = () => {
-          if (window.innerWidth < 768) { // Vous pouvez ajuster la largeur de déclenchement ici
-            setSlidesPerView(1);
-          } else{ if(window.innerWidth >= 768 && window.innerWidth < 992 ){
-            setSlidesPerView(2);
-          }else
-          {
-            setSlidesPerView(3);
-          }}
-        };
-    
-        window.addEventListener('resize', updateSlidesPerView);
-        updateSlidesPerView();
-    
-        return () => {
-          window.removeEventListener('resize', updateSlidesPerView);
-        };
-      }, []);
-    return (
+      return (
         <motion.section 
         variants={staggerContainer}
         initial='hidden'
         whileInView='show'
         viewport={{once:false, amount: 0.25}}
-        className="  flex flex-col items-center  pt-12" id="projects">
+        className="flex flex-col  items-center pt-12" id="projects">
             <motion.h1
                 variants={textVariant(0.5)}
-                className=" text-md  text-center" >Get to know about</motion.h1>
-                <motion.h1
+                className="text-md text-center">Get to know about</motion.h1>
+            <motion.h1
                 variants={textVariant(0.5)}
-                className=' text-md  text-center text-3xl text-[#7127BA] font-bold' >My Projects</motion.h1>
+                className='text-md text-center text-3xl text-[#7127BA] font-bold'>My Projects</motion.h1>
             <motion.div 
             variants={slideIn('left','tween',0.2,1)}
-            className="w-[90%]  p-10 ">
-            <Swiper
-            modules={[Navigation, Pagination, Scrollbar, A11y]}
-            spaceBetween={60}
-            slidesPerView={slidesPerView}
-            navigation = {true}
-            loop = {true}
-            pagination={{ clickable: true } }
-            onSlideChange={(swiper) =>{ handleSlideChange(swiper); 
-            }}
-            >
-            {
-                projects.map((project, index)=>(
-                    <SwiperSlide key={index} >
-                    {/* card project */}
-                    <div  className={`text-center md:text-left mb-10  border-2  w-[100%] h-[75vh]   ${((index === activeSlide || (index ===0 && activeSlide===projects.length))&&slidesPerView===3) ? '' : 'mt-10'} `}>   
-                        <div className="h-[42%] overflow-hidden border-b-[1px]">
-                            <img src={project.img} alt={project.title} className=" z-1 w-full h-full o" />
-                        </div>
-                        <div className="h-[10%] border-b-[1px] flex items-center pl-2 ">
-                            <p className="w-full text-center md:text-left">{project.technologies}</p>
-                        </div>
-                        <div  className="h-[48%]  flex flex-col justify-evenly text-center">
+            className="swiper-container relative  w-[100%] flex flex-row justify-center items-center center  overflow-visible">
+                <Swiper
+                    className="w-[90%] "
+                    modules={[Navigation,Pagination, Scrollbar, A11y]}
+                    spaceBetween={60}
+                    slidesPerView={1.5}
+                    navigation={{
+                    prevEl: '.custom-prev',
+                    nextEl: '.custom-next',
+                    }}
+                    loop={true}
+                    centeredSlides={true}
+                    // pagination={{ clickable: true }}
+                    onSlideChange={(swiper) => handleSlideChange(swiper)}
+                    // onInit={(swiper) => s.current = swiper}
+                >
+                    {projects.map((project, index) => (
+                    <SwiperSlide key={index} className={`${index === activeSlide ? 'active-slide' : ''}`}>
+                        <div className={`flex flex-col justify-evenly h-[70vh] border-2  mb-10 mt-10  ${index === activeSlide ? 'slide-active-design' : ''}`}>
                             <p className="text-center text-xl">{project.title}</p>
-                            <p className="text-sm ">{project.details}</p>
-                            <div className="flex flex-row ">
-                            
-                            <a href={project.liveLink} target="_blank" rel="noopener noreferrer" className={`w-[30%] h-10 ${project.isLiveAvailable?" block":" hidden"} ml-3`}><button className={`bg-mainColor  px-4 h-[100%] w-[100%] rounded hover:scale-105  `}>Live</button></a>
-                            <a href={project.codeLink} target="_blank" rel="noopener noreferrer" className={`w-[30%] h-10 ${project.isCodeAvailable?" block":" hidden"} ml-3`}><button className=" border-[1px] border-[gray]  h-[100%] w-[100%] rounded hover:scale-105   ">
-                                code
-                            </button></a>
-                            <img src={lock} alt="lock" className={` h-10 w-10 ml-8 block ${project.isCodeAvailable?"hidden":""} ${project.isLiveAvailable?"hidden" : ""} cursor-pointer`} />
+                            <div className={`text-center  md:text-left flex flex-col md:flex-row justify-evenly items-center h-[60%] md:h-[60%] `}>
+                                <div className={`h-[100%] md:w-[40%] w-[100%]  flex-col justify-evenly text-center hidden md:flex`}>
+                                    <p className="text-sm">{project.details}</p>
+                                    <p>Technologies : {project.technologies}</p>
+                                </div>
+                                <img src={project.img} alt={project.title} className="z-1 overflow-hidden md:w-[45%] md:h-auto  object-cover" />
+                                <div className={`h-[100%] md:w-[40%] w-full  flex-col justify-evenly text-center flex md:hidden`}>
+                                    <p className="text-sm ">{project.details}</p>
+                                    <p>Technologies : {project.technologies}</p>
+                                </div>
+                            </div>
+                            <div className="flex flex-row justify-around">
+                                <a href={project.liveLink} target="_blank" rel="noopener noreferrer" className={`w-[30%] h-10 ${project.isLiveAvailable ? "block" : "hidden"} ml-3`}>
+                                    <button className="bg-mainColor px-4 h-[100%] w-[100%] rounded hover:scale-105">Live</button>
+                                </a>
+                                <a href={project.codeLink} target="_blank" rel="noopener noreferrer" className={`w-[30%] h-10 ${project.isCodeAvailable ? "block" : "hidden"} ml-3`}>
+                                    <button className="border-[1px] border-[gray] h-[100%] w-[100%] rounded hover:scale-105">Code</button>
+                                </a>
+                                <img src={lock} alt="lock" className={`h-10 w-10 ml-8 block ${project.isCodeAvailable ? "hidden" : ""} ${project.isLiveAvailable ? "hidden" : ""} cursor-pointer`} />
                             </div>
                         </div>
-                    </div>
                     </SwiperSlide>
-                ))
-            }
-            </Swiper>
+                    ))}
+                </Swiper>
+                <div className="absolute top-1/2 left-[10px] transform -translate-y-1/2 cursor-pointe">
+                    <button className="custom-prev">
+                    {/* <img src={leftArrow} alt="Previous" className="w-10 h-10" /> */}
+                    <FaArrowLeft  alt="Next" className="w-10 h-10 r" />
+                    </button>
+                </div>
+                <div className="absolute top-1/2 right-[10px] transform -translate-y-1/2">
+                    <button className="custom-next">
+                    {/* <img src={rightArrow} alt="Next" className="w-10 h-10" /> */}
+                    <FaArrowRight alt="Previous" className="w-10 h-10" />
+                    </button>
+                </div>
             </motion.div>
-            
         </motion.section>
     );
 }
