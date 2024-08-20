@@ -19,6 +19,7 @@ import MyPortfolio from '../assets/portfolio.png'
 import Dari from '../assets/Cover-Dari.png'
 import Doclib from '../assets/doclib.png'
 import lock from '../assets/lock.svg'
+import ghack from '../assets/ghack_algiers.png'
 import { motion } from "framer-motion"
 import { textVariant } from '../motion';
 import {staggerContainer, slideIn, buttonVariants} from '../motion.js'
@@ -42,8 +43,8 @@ const projects = [
     img:optimumWebSite,
     technologies:"React TailwindCss Vite.js",
     details: "Optimum-Website is your ultimate resource for everything related to Optimum, the innovative mobile application designed for doctors. Here, you'll find detailed information about the app's features, benefits, organisaton and management.", 
-    isCodeAvailable : false,
-    codeLink : "https://github.com/ousscher/optimum",
+    isCodeAvailable : true,
+    codeLink : "https://github.com/ousscher/optimum-website",
     isLiveAvailable : true,
     liveLink : "https://optimum-app.vercel.app/",
 },
@@ -53,19 +54,19 @@ const projects = [
     technologies:"React Tailwind Flask MySql Docker",
     details: "Le Château des Enfants is an open-source, locally deployed platform that streamlines daycare center management. Our mission is to simplify payment management and track children's progress, providing a seamless experience for administrators and parents.", 
     isCodeAvailable : true,
-    codeLink : "https://github.com/ousscher/optimum",
+    codeLink : "https://github.com/F1OOw/Gestion-Paiments-Creche",
     isLiveAvailable : false,
     liveLink : "https://optimum-app.vercel.app/",
 },
 {
-    title:"EVERGREEN",
-    img:Evergreen,
-    technologies:"Flutter Firebase Hive",
-    details: "Evergreen is an educational mobile game designed for children, focusing on environmental protection. It was initiated as part of the PRJP module in the second year of the preparatory cycle at ESI.",
-    isCodeAvailable : true,
+    title:"FOORWEB",
+    img:foorweb,
+    technologies:"Flutter Firebase flutter_BLoC Hive",
+    details: "Foorweb is an admin application for an online sales platform, designed to manage e-commerce stores efficiently. It streamlines store administration, inventory management, order processing, and customer interactions.",
+    isCodeAvailable : false,
     codeLink : "https://github.com/ousscher/EVERGREEN",
     isLiveAvailable : true,
-    liveLink : "https://drive.google.com/file/d/1AYx4b9-tTXaFnLjNHsYfS-PuMxA5f85z/view?usp=sharing"
+    liveLink : "https://play.google.com/store/apps/details?id=com.foorweb.foorwebapp&hl=fr"
 },
 {
     title:"DOCLIB",
@@ -78,14 +79,25 @@ const projects = [
     codeLive : "",
 },
 {
-    title:"FOORWEB",
-    img:foorweb,
-    technologies:"Flutter Firebase flutter_BLoC Hive",
-    details: "Foorweb is an admin application for an online sales platform, designed to manage e-commerce stores efficiently. It streamlines store administration, inventory management, order processing, and customer interactions.",
+    title:"EVERGREEN",
+    img:Evergreen,
+    technologies:"Flutter Firebase Hive",
+    details: "Evergreen is an educational mobile game designed for children, focusing on environmental protection. It was initiated as part of the PRJP module in the second year of the preparatory cycle at ESI.",
+    isCodeAvailable : true,
+    codeLink : "https://github.com/ousscher/EVERGREEN",
+    isLiveAvailable : true,
+    liveLink : "https://drive.google.com/file/d/1AYx4b9-tTXaFnLjNHsYfS-PuMxA5f85z/view?usp=sharing"
+},
+
+{
+    title:"GHACK Website",
+    img:ghack,
+    technologies:"Next.js",
+    details: "The official Ghack Hackathon website, designed to streamline the hackathon experience, the site provides essential event information, including schedules, team registration, judging criteria, and live updates.",
     isCodeAvailable : false,
     codeLink : "https://github.com/ousscher/EVERGREEN",
     isLiveAvailable : true,
-    liveLink : "https://drive.google.com/file/d/13K016iQoJjuHKydlVgrOWMhMlN65ASFM/view?usp=sharing"
+    liveLink : "https://ghack24.gdgalgiers.com/"
 },
 {
     title:"DARIAPP",
@@ -188,13 +200,15 @@ const Projects = ()=>{
                     <SwiperSlide key={index} className={`${index === activeSlide ? 'active-slide' : ''}`}>
                         <div className={`flex flex-col justify-evenly h-[70vh] border-2  mb-10 mt-10  ${index === activeSlide ? 'slide-active-design' : ''}`}>
                             <p className="text-center text-xl">{project.title}</p>
-                            <div className={`text-center  md:text-left flex flex-col md:flex-row justify-evenly items-center h-[70%] md:h-[60%] `}>
+                            <div className={`text-center  md:text-left flex flex-col md:flex-row justify-evenly items-center h-[60%] md:h-[60%] `}>
                                 <div className={`h-[100%] md:w-[40%] w-[100%]  flex-col justify-evenly text-center hidden md:flex`}>
                                     <p className="text-sm">{project.details}</p>
+                                    <p>Technologies : {project.technologies}</p>
                                 </div>
-                                <img src={project.img} alt={project.title} className="z-1 overflow-hidden  w-auto h-[50%]  md:w-[50%] md:h-auto  object-cover" />
+                                <img src={project.img} alt={project.title} className="z-1 overflow-hidden md:w-[45%] md:h-auto  object-cover" />
                                 <div className={`h-[100%] md:w-[40%] w-full  flex-col justify-evenly text-center flex md:hidden`}>
-                                    <p className="text-sm">{project.details}</p>
+                                    <p className="text-sm ">{project.details}</p>
+                                    <p>Technologies : {project.technologies}</p>
                                 </div>
                             </div>
                             <div className="flex flex-row justify-around">
