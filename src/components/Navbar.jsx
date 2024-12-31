@@ -41,9 +41,9 @@ const scrollToSection = (sectionId) => {
         <div className=" lg:w-[30%] ">
             {/* pour le logo apres */}
             <div className='w-[100%] md:hidden flex flex-row  justify-around'>
-                <div className='mx-3'> <a href="/"><FaFacebook className=' text-3xl text-[white]  hover:scale-110' /></a></div>
-                <div className='mx-3'><a href="/"><FaGithub className=' text-3xl text-[white]  hover:scale-110   '   /></a></div>
-                <div className='mx-3'><a href="/"><FaLinkedin className=' text-3xl text-[white]  hover:scale-110  '  /></a></div>
+                <div className='mx-3'> <a href="https://www.facebook.com/profile.php?id=100013043322287" target="_blank" rel="noopener noreferrer"><FaFacebook className=' text-3xl text-[white]  hover:scale-110' /></a></div>
+                <div className='mx-3'><a href="https://github.com/ousscher" target="_blank" rel="noopener noreferrer"><FaGithub className=' text-3xl text-[white]  hover:scale-110   '   /></a></div>
+                <div className='mx-3'><a href="https://www.linkedin.com/in/oussama-cherguelaine-300125291/" target="_blank" rel="noopener noreferrer"><FaLinkedin className=' text-3xl text-[white]  hover:scale-110  '  /></a></div>
             </div>
         </div> 
         <button className='m-3 md:hidden' onClick={toggleNavbar}>
