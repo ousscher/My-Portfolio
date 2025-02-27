@@ -36,7 +36,7 @@ const scrollToSection = (sectionId) => {
         setIsNavbarVisible(!isNavbarVisible);
       };
     return(
-    <div className='flex flex-col justify-center ' ref={navRef}>
+    <div className='overflow-hidden flex flex-col justify-center ' ref={navRef}>
         <div className="  fixed top-0 w-[100%]  md:w-[96%] md:right-0  flex flex-row justify-between md:justify-evenly navbar  text-sm items-center ">
         <div className=" lg:w-[30%] ">
             {/* pour le logo apres */}
