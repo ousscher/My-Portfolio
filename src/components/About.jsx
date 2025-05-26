@@ -1,71 +1,198 @@
-import { useState } from "react";
-import { motion } from "framer-motion"
-import {staggerContainer, slideIn, buttonVariants} from '../motion.js'
-import {textVariant} from '../motion.js'
-const About = ()=> {
+"use client";
 
-    const next = ()=>{  //la fonction next 
-        if (currentIndex<informations.length-1) {
-            setCurrentIndex(currentIndex+1);
-        }
+import { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { staggerContainer, slideIn, textVariant } from '../motion';
+
+const About = () => {
+  const informations = [
+    {
+      title: "Introduction",
+      content: "Hello, I'm Oussama—a passionate Full Stack Developer and AI enthusiast. My journey in technology is driven by curiosity and a desire to create impactful solutions. I thrive in the dynamic intersection of web development and data science, constantly pushing the boundaries of what's possible. From building interactive web applications to deploying machine learning models, I enjoy the challenge of transforming complex problems into elegant solutions that deliver real value. My approach combines technical expertise with creative thinking, ensuring that every project I undertake is both functionally robust and user-friendly.",
+    },
+    {
+      title: "Technical Expertise",
+      content: "My technical toolkit spans multiple domains: On the web development front, I specialize in React, Node.js, and modern JavaScript frameworks for creating responsive, dynamic applications. In the mobile realm, I leverage Flutter to build cross-platform solutions with native-like performance. What truly excites me is my growing expertise in AI and data science—from implementing deep learning models with TensorFlow and PyTorch to developing data analysis pipelines that extract actionable insights. I'm particularly interested in the practical applications of computer vision and natural language processing, areas where I've been developing specialized knowledge.",
+    },
+    {
+      title: "Professional Journey",
+      content: "My academic foundation began with a Baccalaureate in Mathematics (17.86/20), which led me to the Higher National School of Computer Science. There, I cultivated strong algorithmic thinking and computer architecture knowledge. Beyond academics, I've embraced self-directed learning in web development, AI, and data science. This parallel path has equipped me with practical skills in designing and implementing both front-end interfaces and back-end systems. My experience extends to data analysis and machine learning projects, where I've developed predictive models and interactive data visualizations that bridge the gap between complex information and accessible insights.",
+    },
+    {
+      title: "Services",
+      content: "I offer comprehensive technical solutions across several domains: Full stack web development with React, Next.js, and Node.js—delivering seamless, responsive applications tailored to specific business needs. Cross-platform mobile development using Flutter—creating consistent experiences across iOS and Android. Data science and AI solutions—from data cleaning and analysis to implementing machine learning models for prediction, classification, or recommendation systems. My services include end-to-end project management, from requirement analysis and architecture design to development, testing, and deployment, always ensuring high-quality deliverables that exceed expectations.",
+    },
+    {
+      title: "Open to Opportunities",
+      content: "I'm actively seeking collaborative opportunities where I can apply my unique combination of development and data science skills. Whether it's building innovative web applications, developing AI-powered features, or creating data visualization tools, I'm eager to contribute to projects that push technological boundaries. I value environments that foster learning and creativity, where I can continue to grow as a professional while delivering significant value. My commitment to deadlines, attention to detail, and passion for quality make me a reliable team member. If you're looking for someone who brings both technical expertise and fresh perspectives, I'd be excited to discuss how we can work together.",
+    },
+  ];
+
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [isAnimating, setIsAnimating] = useState(false);
+
+  const next = () => {
+    if (currentIndex < informations.length - 1 && !isAnimating) {
+      setIsAnimating(true);
+      setCurrentIndex(currentIndex + 1);
+      setTimeout(() => setIsAnimating(false), 500);
     }
-    const previous = ()=>{
-        if (currentIndex>0) {
-            setCurrentIndex(currentIndex-1);
-        }
+  };
+
+  const previous = () => {
+    if (currentIndex > 0 && !isAnimating) {
+      setIsAnimating(true);
+      setCurrentIndex(currentIndex - 1);
+      setTimeout(() => setIsAnimating(false), 500);
     }
-    const informations = [
-        {
-            title : "Introduction ",
-            content : "Allow me to introduce myself: I'm Oussama, a dedicated student at ESI Algiers, where I've discovered my profound passion for technological and IT advancements. My enthusiasm for these fields knows no bounds, and I'm constantly investing my time in diverse areas, ranging from the intricate world of programming and algorithms to the cutting-edge realms of AI, particularly Deep Learning. I'm also deeply involved in web development, proficient in ReactJS and Node.js, and have a knack for building seamless, interactive user experiences. What's more, I'm an experienced Flutter developer, adept at crafting cross-platform mobile applications with a keen eye for elegant UI and robust functionality.",
-        },
-        {
-            title : "Journey",
-            content : "I successfully obtained my Baccalaureate in Mathematics with an impressive score of 17.86 out of 20, which opened the doors to my enrollment at the Higher National School of Computer Science (formerly known as INI Algiers). This esteemed institution was my top choice, primarily for its exceptional software engineering program and the prestigious certification it offers. My journey began with a deep-rooted passion for programming in C and a curiosity for delving into advanced data structures, Assembly language, and the intricacies of computer architecture. The school has consistently exceeded my expectations, and during my first year, I embarked on a parallel path, venturing into web development.",
-        },
-        {
-            title : "Services",
-            content : "I specialize in crafting modern and responsive web applications using technologies like ReactJS and Node.js, ensuring that your digital presence stands out and engages your audience effectively. As a skilled Flutter developer, I offer cross-platform mobile application development, combining sleek and intuitive user interfaces with robust functionality. My proficiency extends to providing end-to-end solutions, from concept and design to development, testing, and deployment.",
-        },
-        {
-            title : "Open Opportunities",
-            content : "I am actively seeking opportunities for collaboration or job offers. With a strong commitment to meeting deadlines and a proven track record of delivering high-quality work, I am confident in my ability to contribute to your projects. My approach is founded on effective communication, teamwork, and a willingness to go the extra mile to achieve common goals. I believe that my skills and dedication make me a valuable asset to any team or organization. If you have any collaboration or job opportunities that align with my profile, I am eager to explore them further and discuss how I can contribute to your success.",
-        },
+  };
+
+  // Auto progress through cards (optional)
+  useEffect(() => {
+    const interval = setInterval(() => {
+      if (currentIndex < informations.length - 1) {
+        setCurrentIndex(currentIndex + 1);
+      } else {
+        setCurrentIndex(0);
+      }
+    }, 15000); // Change card every 15 seconds
+
+    return () => clearInterval(interval);
+  }, [currentIndex, informations.length]);
+
+  // Animation variants
+  const contentVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
+    exit: { opacity: 0, y: -20, transition: { duration: 0.3 } }
+  };
+
+  // Progress indicator
+  const ProgressIndicator = () => (
+    <div className="flex justify-center space-x-2 mt-4">
+      {informations.map((_, index) => (
+        <button
+          key={index}
+          onClick={() => setCurrentIndex(index)}
+          className={`w-3 h-3 rounded-full transition-all duration-300 ${
+            currentIndex === index 
+              ? "w-6" 
+              : "hover:bg-gray-400"
+          }`}
+          style={{
+            backgroundColor: currentIndex === index ? '#7127BA' : '#374151'
+          }}
+          aria-label={`Go to slide ${index + 1}`}
+        />
+      ))}
+    </div>
+  );
+
+  return (
+    <motion.section
+      variants={staggerContainer()}
+      initial="hidden"
+      whileInView="show"
+      viewport={{ once: false, amount: 0.25 }}
+      className="flex justify-center items-center lg:pt-12 mb-20"
+      id="about"
+      style={{ backgroundColor: '#11071f' }}
+    >
+      <div className="w-[95%] sm:w-[85%] lg:w-[80%] flex flex-col justify-center items-center">
+        <motion.h2
+          variants={textVariant(0.5)}
+          className="mt-10 text-sm md:text-md text-center font-medium text-white"
+        >
+          Get to know
+        </motion.h2>
+        <motion.h1
+          variants={textVariant(0.5)}
+          className="mb-6 md:mb-10 text-2xl md:text-3xl text-center font-bold"
+          style={{ color: '#7127BA' }}
+        >
+          About Me
+        </motion.h1>
         
-    ];
-    const [currentIndex , setCurrentIndex] = useState(0);
-    return(
-        <motion.section
-        variants={staggerContainer}
-        initial='hidden'
-        whileInView='show'
-        viewport={{once:false, amount: 0.25}}
-        className="flex justify-center items-center lg:pt-16 mb-20 " id="about"> 
-            <div className=" w-[100%] sm:w-[80%] flex flex-col  justify-center items-center  ">
-                {/* <h1 className=" my-10 text-md  text-center">Get to know <br /> <span className="text-3xl text-[#7127BA] font-bold">About Me</span> </h1> */}
-                <motion.h1
-                variants={textVariant(0.5)}
-                className="mt-10 text-md  text-center" >Get to know</motion.h1>
-                <motion.h1
-                variants={textVariant(0.5)}
-                className='mb-10 text-md  text-center text-3xl text-[#7127BA] font-bold' >About Me</motion.h1>
-                <motion.div
-                variants={slideIn('left','tween',0.2,1)}
-                className="h-[68vh] md:h-[62vh] lg:h-[50vh] flex justify-center items-center ">
-                <div className="w-[98%] sm:w-[85%] lg:w-[80%]  pb-10 px-2 flex flex-col items-center border-2">
-                    <p className="my-5 text-center text-2xl font-bold">{informations[currentIndex].title}</p>
-                    <p className="text-center">{informations[currentIndex].content}</p>
+        <motion.div
+          variants={slideIn('left', 'tween', 0.2, 1)}
+          className="min-h-[60vh] md:min-h-[50vh] w-full flex justify-center items-center"
+        >
+          <div className="w-full relative overflow-hidden rounded-lg shadow-md"
+               style={{ 
+                 backgroundColor: '#1a0f2e',
+                 border: '2px solid #7127BA'
+               }}>
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={currentIndex}
+                variants={contentVariants}
+                initial="hidden"
+                animate="visible"
+                exit="exit"
+                className="px-4 py-6 md:px-8 md:py-8"
+              >
+                <h3 className="text-xl md:text-2xl font-bold text-center mb-4"
+                    style={{ color: '#7127BA' }}>
+                  {informations[currentIndex].title}
+                </h3>
+                
+                <div className="prose max-w-none">
+                  <p className="text-sm md:text-base text-center md:text-left leading-relaxed text-white">
+                    {informations[currentIndex].content}
+                  </p>
                 </div>
-                </motion.div>
-                <div className="w-[60%]  flex flex-row items-center justify-evenly">
-                <button onClick={previous} className={`bg-[#7127BA] px-4 w-28 md:w-32 h-10 rounded mt-10 ${currentIndex===0 ?"bg-[gray]" :""}`}> Previous</button>
-                <button onClick={next} className={`bg-[#7127BA] px-4 h-10 w-28 md:w-32 rounded mt-10 ${currentIndex === informations.length-1 ?"bg-[gray]":""}`}> Next</button >
+                
+                {/* Card number indicator */}
+                <div className="absolute top-4 right-4 rounded-full px-3 py-1 text-xs font-medium"
+                     style={{ 
+                       backgroundColor: 'rgba(113, 39, 186, 0.1)',
+                       color: '#7127BA'
+                     }}>
+                  {currentIndex + 1}/{informations.length}
                 </div>
-            </div>
-        </motion.section>
-    );
-}
+              </motion.div>
+            </AnimatePresence>
+          </div>
+        </motion.div>
+        
+        {/* Progress indicator */}
+        <ProgressIndicator />
+        
+        {/* Navigation buttons */}
+        <div className="w-[75%] md:w-[60%] flex flex-row items-center justify-between md:justify-evenly mt-6">
+          <button
+            onClick={previous}
+            className={`px-3 md:px-4 py-2 w-24 md:w-32 rounded-md transition-all duration-300 flex items-center justify-center ${
+              currentIndex === 0 ? "opacity-70" : "hover:opacity-90"
+            }`}
+            style={{
+              backgroundColor: currentIndex === 0 ? '#374151' : '#7127BA',
+              color: 'white'
+            }}
+            disabled={currentIndex === 0 || isAnimating}
+            aria-label="Previous slide"
+          >
+            <span className="mr-1">←</span> Previous
+          </button>
+          
+          <button
+            onClick={next}
+            className={`px-3 md:px-4 py-2 w-24 md:w-32 rounded-md transition-all duration-300 flex items-center justify-center ${
+              currentIndex === informations.length - 1 ? "opacity-70" : "hover:opacity-90"
+            }`}
+            style={{
+              backgroundColor: currentIndex === informations.length - 1 ? '#374151' : '#7127BA',
+              color: 'white'
+            }}
+            disabled={currentIndex === informations.length - 1 || isAnimating}
+            aria-label="Next slide"
+          >
+            Next <span className="ml-1">→</span>
+          </button>
+        </div>
+      </div>
+    </motion.section>
+  );
+};
 
 export default About;
-
-// I'm an experienced web and mobile developer, skilled in crafting applications for both web and mobile platforms. I'm proficient in programming languages and tools necessary for designing responsive websites and native or hybrid mobile applications, and I'm passionate about technological innovation.
